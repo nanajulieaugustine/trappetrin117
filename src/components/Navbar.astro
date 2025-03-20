@@ -1,0 +1,125 @@
+---
+---
+<section>
+    <a href="/">Trappetrin117</a>
+    <nav>
+      <ul class="menu">
+        <li><a href="/vaerker">Aktuelle værker</a></li>
+        <li><a href="/om">Om</a></li>
+        <li><a href="/vaerk_hos_os">Dit værk hos os</a></li>
+        <li><a href="/arkiv">Arkiv</a></li>
+        <li><a href="/bestyrelse">Bestyrelse</a></li>
+      </ul>
+    </nav>
+    <div class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+</section>
+
+    <style>
+        section{
+            display:flex;
+            padding:38px;
+            justify-content: space-between;
+            padding-inline:var(--content-width);
+            align-items: flex-start;
+            align-items: center;
+
+            ul{
+                display:flex;
+                justify-content: center;
+                gap:30px;
+
+                li{
+                    list-style: none;
+                }
+            }
+        }
+
+        .burger {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      display: none;
+
+        .line {
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      margin-bottom: 5px;
+      transition: 0.2s linear;
+    }
+    }
+
+    @media screen and (max-width: 750px) {
+      .menu {
+        display: none;
+      }
+      .burger {
+        display: block;
+      &.active .line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+        transition: 0.2s linear;
+      }
+  
+      &.active .line:nth-child(2) {
+        opacity: 0;
+        transition: 0.15s linear;
+      }
+  
+      &.active .line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+        transition: 0.2s linear;
+      }
+    }
+  
+      nav.active .menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 92px;
+        width: 100%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        opacity: 1;
+        z-index:1;
+        background-color: #1a1a1a;
+        padding:2rem;
+
+        animation-name: fade;
+        animation-duration: 1.2s;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-out;
+        animation-fill-mode: both;
+      }
+
+      @keyframes fade {
+    0% {
+    opacity: 0;
+    }
+
+    100% {
+    opacity: 1;
+    }
+  }
+}</style>
+
+<script>
+        const burger = document.querySelector('.burger');
+    const nav = document.querySelector('nav');
+    const menu = document.querySelector('.menu');
+    const links = document.querySelectorAll('.menu li a');
+  
+    burger?.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      nav?.classList.toggle('active');
+    });
+  
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        burger?.classList.remove('active');
+        nav?.classList.remove('active');
+      });
+    });
+</script>
