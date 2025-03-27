@@ -1,11 +1,92 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Scrollingbar from "../components/Scrollingbar.astro";
+
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpamNkZXF1dGNreGFsanZ2Z2loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1NjM4OTgsImV4cCI6MjA1ODEzOTg5OH0.F4NYK0yQa7OpLi5q47PgDg5tU0tn6G5btG9VgPnfKzo";
+
+const about = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/about`, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((response) => response.json());
 ---
 <Layout>
     <article>
         <h1>om os</h1>
-        <figure>
-            
-        </figure>
+        <p>Trappetrin 117 startede med navnet Teaterelevator. Navnet udsprang efter ideen om, at videreudvikle sine dramaturgiske ambitioner til næste etage. Men som foreningen udviklede sig, ønskede vi også at inkludere alle former for kunst i foreningen og så derfor Teaterelevator som værende for snæver en beskrivelse. Eftersom at tage elevatoren er den lette løsning, så vi en symbolisme i at vælge trapperne: at føre kunst til liv er en slidelig proces når man ikke vælger den lette løsning, men med hårdt arbjde når man næste etage med mere stolthed.</p>
     </article>
+        <ul class="no-padding">
+            {
+                about.map((elm)=>
+                <Scrollingbar titel={elm.titel} beskrivelse={elm.beskrivelse}/>
+            )}
+         </ul>
+         <figure></figure>
+         <div>
+            <section class="no-padding">
+                <h1>arkiv</h1>
+            </section>
+            <section>
+                <h2>medea</h2>
+            </section>
+         </div>
 </Layout>
+
+<style>
+      article{
+    padding-top:var(--content-height);
+  }
+    ul {
+    display:flex;
+    scroll-snap-type: inline mandatory;
+    display: flex;
+    overflow-x: auto;
+    padding-inline:var(--content-width);
+    gap:var(--card-gap);
+    }
+
+    figure{
+        position: relative;
+        width:100vw;
+        display:block;
+        top:-30vh;
+        height:710px;
+        background-size: cover;
+        z-index:-1;
+        overflow: hidden;
+        background: url(../om/medea_blue_mask.webp) no-repeat center fixed;
+    }
+
+    div{
+        position:relative;
+        top:-30vh;
+        scroll-snap-type: inline mandatory;
+        display: flex;
+        overflow-x: auto;
+  
+  > * {
+    flex: 1 0 70%;
+  }
+section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  background: var(--red-secondary01);
+  block-size: 100svh;
+  display: grid;
+  place-content: center;
+
+  &:nth-child(even){
+    background-color: var(--red-tertiary01);
+  }
+  > * {
+    max-width: 50ch;
+    color: color-mix(in oklab, var(--bg) var(--color-mix,), CanvasText);
+  }
+  
+  h1, h2 {
+    color:var(--beige-primary03);
+  }
+    }
+}
+</style>

@@ -1,0 +1,149 @@
+---
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpamNkZXF1dGNreGFsanZ2Z2loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1NjM4OTgsImV4cCI6MjA1ODEzOTg5OH0.F4NYK0yQa7OpLi5q47PgDg5tU0tn6G5btG9VgPnfKzo";
+
+const accordion = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/accordion`, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((response) => response.json());
+console.log("LISTE", accordion);
+---
+<section>
+    <article>
+        <h2>Info</h2>
+        <p>Du indsender et projekt ved at sende en mail til Trappetrin117@gmail.com</p>
+    </article>
+{accordion.map((accordion)=>(
+    <details name="accordion">
+      <summary>
+        <span>
+          {accordion.question} 
+            <svg viewBox="0 0 24 24" width="24" height="24">
+            <style>
+            .vertical {
+                transform-box: fill-box;
+                transform-origin: 50% 50%;
+                rotate: var(--r, 0deg);
+                transition: rotate .2s;
+            }</style>
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" >
+            <path class="vertical" d="M12 5v14"></path>
+            <path d="M5 12h14"></path>
+            </g>
+        </svg>
+        </span>
+      </summary>
+      <div>
+        <p>{accordion.answer}</p>
+      </div>
+    </details>
+    ))
+    }
+</section>
+
+    <style>
+    section{
+        border-radius: var(--card-border-radius);
+    background-color: var(--blue-opacity01);
+    padding: 50px 116px;
+    margin-top:1.5rem;
+    max-width:1220px;
+    transition:0.5s;
+
+    article{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding-bottom:0.5rem;
+      h2{
+        padding-bottom:2rem;
+      }
+    }
+  details {
+    color: hsl(190 30% 12%);
+    border-bottom: 1px solid #595566;
+    transition: all 0.5s ease;
+    @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+  }
+
+  &[open] {
+  --r: z 90deg;
+}
+    &::details-content {
+      transition: all 0.5s ease, content-visibility 0.5s allow-discrete, rotate 0.3s ease;
+      height: 0;
+      overflow: clip;
+  }
+  &[open]::details-content {
+    height: auto;
+  }
+@supports (interpolate-size: allow-keywords) {
+    :root {
+        interpolate-size: allow-keywords;
+    }
+    [open]::details-content {
+        height: auto;
+    }
+}
+    summary {
+      font-weight: 700;
+      text-wrap: revert;
+      user-select: none;
+      cursor: pointer;
+      transition:all 0.5s ease;
+
+      &::marker,
+      &::-webkit-details-marker {
+        content: "";
+        display: none;
+      }
+
+      span {
+        border: none;
+        text-align: start;
+        padding: 0;
+        inline-size: 100%;
+        padding-block: 1rlh;
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+
+        svg {
+          inline-size: auto;
+          height: 1lh;
+          flex-shrink: 0;
+        }
+      }
+    }
+    .answer {
+      color: #595566;
+
+      > * + * {
+        margin-top: 1em;
+      }
+
+      :last-child {
+        padding-block-end: 1rlh;
+      }
+
+      .link-block {
+        display: block;
+      }
+    }
+  }
+  &:hover{
+    background-color: var(--blue-secondary02);
+    h2,p{
+      color:var(--white-primary01);
+    }
+    details{
+      border-bottom: 1px solid var(--white-primary01);
+    }
+    summary{
+      color:var(--white-primary01);
+    }
+  }
+}
+</style>

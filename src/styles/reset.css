@@ -66,10 +66,15 @@ h6 {
   font-size: inherit;
   font-weight: inherit;
   margin: 0;
+  padding-bottom: 0.5rem;
 }
 
 p {
   text-wrap: pretty;
+
+  &:last-of-type {
+    padding-bottom: 1.5rem;
+  }
 }
 
 a[class]:any-link {

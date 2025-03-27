@@ -1,0 +1,27 @@
+---
+const {titel, beskrivelse} = Astro.props;
+
+---
+<li>
+    <h3>{titel}</h3>
+    <p>{beskrivelse}</p>
+</li>
+
+<style>
+    li{
+    flex-basis:min(90%, 400px);
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--blue-secondary02);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    backdrop-filter: var(--card-bg);
+    box-shadow: var(--card-boxshadow);
+    p, h3{
+        color:var(--white-primary01);
+    }
+  }
+</style>

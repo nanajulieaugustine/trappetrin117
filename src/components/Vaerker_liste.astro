@@ -1,0 +1,51 @@
+---
+import Titel from "../components/Titel.astro";
+import Button from "./Button.astro";
+const {image, genre, beskrivelse, titel, spilledatoer, link} = Astro.props;
+---
+
+<li>
+    <h2 class="semere">se mere</h2>
+    <Titel>{genre}</Titel>
+    <a href={"/produkter/"+link}> <img src={`/../vaerker/${image}`} alt=""></a>
+</li>
+<div>
+    <li>
+        <h2>{titel}</h2>
+    </li>
+    <li>
+        <p>{beskrivelse}</p>
+    </li>
+    <li>
+        <h3>Spilledatoer</h3>
+        <p>{spilledatoer}</p>
+    </li>
+    <li>
+        <a href="https://www.place2book.com/da/sw2/sales/event_list/EM12959?fbclid=IwY2xjawJGhH1leHRuA2FlbQIxMAABHaDiQ96phJBmChaRZfnhbmfnEWnIwnAc7x8bMUq4BNwixACMJb8ccJHjBA_aem_Hz9rmvYZbzme4TkClU5fNA" target=”_blank1”>
+        <Button>billetter</Button>
+        </a>
+    </li>
+</div>
+
+<style>
+    div{
+        padding-top:8rem;
+        p{
+        max-width: 89ch;
+        align-items: center;
+        }
+    }  
+        img{
+            transition: 0.5s;
+            &:hover{
+                opacity: 0.5;
+                transition: opacity 1.2s ease-out;
+            }
+        } 
+        .semere{
+            position: relative;
+            top:50%;
+            left:25%;
+            z-index:-1;
+        }
+</style>

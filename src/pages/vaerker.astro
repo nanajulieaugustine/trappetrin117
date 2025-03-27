@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import VaerkerListe from "../components/Vaerker_liste.astro";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpamNkZXF1dGNreGFsanZ2Z2loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1NjM4OTgsImV4cCI6MjA1ODEzOTg5OH0.F4NYK0yQa7OpLi5q47PgDg5tU0tn6G5btG9VgPnfKzo";
+
+const vaerker = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/vaerker`, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((response) => response.json());
+console.log("LISTE", vaerker)
+---
+<Layout>
+    <section>
+       <article>
+        <h1>aktuelle værker</h1>
+          <a href="../pages/vaerk_hos_os">Arkiv af tidligere værker</a>
+       </article>
+       <ul>
+        {vaerker.map((vaerker)=>(
+            <VaerkerListe image={vaerker.image} genre={vaerker.genre} beskrivelse={vaerker.beskrivelse} titel={vaerker.titel} spilledatoer={vaerker.spilledatoer}/>
+        ))
+        }
+    </ul>
+    </section>
+</Layout>
+
+<style>
+  article{
+    display:flex;
+    flex-direction: row;
+    a{
+      color:var( --black-primary02);
+      &:hover{
+        color:var(--red-secondary01);
+      }
+    }
+  }
+    ul{
+        display:flex;
+       gap:20px;
+    }
+</style>

@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Bestyrelse from "../components/Bestyrelse.astro";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpamNkZXF1dGNreGFsanZ2Z2loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1NjM4OTgsImV4cCI6MjA1ODEzOTg5OH0.F4NYK0yQa7OpLi5q47PgDg5tU0tn6G5btG9VgPnfKzo";
+
+const bestyrelse = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/bestyrelse`, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((response) => response.json());
+const bestyrelse_leder = bestyrelse.slice(0,3)
+const bestyrelse_repraesentanter = bestyrelse.slice(3)
+---
+<Layout>
+    <section>
+        <article>
+            <h1>bestyrelse</h1>
+        </article>
+        <ul>
+            {bestyrelse_leder.map((bestyrelse_leder)=>(
+                <Bestyrelse image={bestyrelse_leder.image} stilling={bestyrelse_leder.stilling} navn={bestyrelse_leder.navn} beskrivelse={bestyrelse_leder.beskrivelse}/>
+            ))
+            }
+        </ul>
+    </section>
+    <section class="no-top">
+        <article>
+            <h2>repræsentanter</h2>
+            <p>Foreningen består af en række repræsentanter fra de forskellige kunstarter. Det er dem, der rådgiver dig indenfor deres område når du indsender os dit værk!</p>
+        </article>
+            <ul>
+                {bestyrelse_repraesentanter.map((bestyrelse_repraesentanter)=>(
+                    <Bestyrelse image={bestyrelse_repraesentanter.image} stilling={bestyrelse_repraesentanter.stilling} navn={bestyrelse_repraesentanter.navn} beskrivelse={bestyrelse_repraesentanter.beskrivelse}/>
+                ))
+                }
+            </ul>
+        </section>
+</Layout>
+
+<style>
+        ul{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap:20px;
+        background-color: var(--red-opacity01);
+        border-radius: 25px;
+        padding:2rem;
+        transition:0.5s;
+        &:hover{
+            background-color: var(--red-secondary01);
+        }
+
+        @media (width<750px){
+          grid-template-columns: 1fr 1fr;
+      }
+      @media (width<600px){
+          grid-template-columns: 1fr;
+      }
+
+         }
+        section:nth-of-type(odd) ul{
+            background-color: var(--red-opacity02);
+            &:hover{
+                background-color: var(--red-tertiary01);
+            }
+        }
+</style>
