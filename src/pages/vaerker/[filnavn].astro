@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import VaerkSingle from "../../components/Vaerk_single.astro";
+import Medvirkende from "../../components/Medvirkende.astro";
 
 export async function getStaticPaths() {
   const url = "https://yijcdequtckxaljvvgih.supabase.co/rest/v1/vaerker";
@@ -25,17 +26,78 @@ console.log(vaerk)
 ---
 
 <Layout>
-  <section>
+  <section class="info">
     <ul>
-   <VaerkSingle image={vaerk.image} genre={vaerk.genre} beskrivelse={vaerk.beskrivelse} titel={vaerk.titel} spilledatoer={vaerk.spilledatoer}/>
+   <VaerkSingle plakat={vaerk.plakat} genre={vaerk.genre} beskrivelse={vaerk.beskrivelse} titel={vaerk.titel} spilledatoer={vaerk.spilledatoer} full_date_1={vaerk.full_date_1} full_date_2={vaerk.full_date_2} full_date_3={vaerk.full_date_3}/>
       </ul>
-  </section>
-
+    </section>
+    <section>
+      <h1>{vaerk.quote}</h1>
+    </section>
+      <section class="medvirkende_section">
+        <h2>medvirkende</h2>
+        <div class="medvikende_liste">
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_1_img} stilling={vaerk.medvirkende_1_stilling} navn={vaerk.medvirkende_1_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_2_img} stilling={vaerk.medvirkende_2_stilling} navn={vaerk.medvirkende_2_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_3_img} stilling={vaerk.medvirkende_3_stilling} navn={vaerk.medvirkende_3_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_4_img} stilling={vaerk.medvirkende_4_stilling} navn={vaerk.medvirkende_4_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_5_img} stilling={vaerk.medvirkende_5_stilling} navn={vaerk.medvirkende_5_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_6_img} stilling={vaerk.medvirkende_6_stilling} navn={vaerk.medvirkende_6_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_7_img} stilling={vaerk.medvirkende_7_stilling} navn={vaerk.medvirkende_7_navn}/>
+          </ul>
+        </div>
+      </section>
 </Layout>
 
 <style>
+  h1{
+    font-size: var(--space-l);
+    line-height: 4rem;
+  }
   ul{
     display:flex;
     gap:20px;
   }
+
+  .medvirkende_section{
+    h2{
+      padding-top:3rem;
+    }
+        gap:20px;
+        background-color: var(--red-opacity01);
+        border-radius: 25px;
+       
+        transition:0.5s;
+        &:hover{
+            background-color: var(--red-secondary01);
+        }
+  .medvikende_liste{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap:20px;
+    @media (width<1000px){
+            grid-template-columns: 1fr 1fr 1fr;
+          }
+          @media (width<650px){
+            grid-template-columns: 1fr 1fr;
+            }
+    ul{
+      padding:0;
+      flex-direction: column;
+    }
+  }
+}
 </style>

@@ -1,11 +1,11 @@
 ---
 import Button from "./Button.astro";
-const {image, genre, beskrivelse, titel, spilledatoer} = Astro.props;
+const {plakat, beskrivelse, titel, full_date_1, full_date_2, full_date_3} = Astro.props;
 ---
 
-<li>
-    <img src={`/../vaerker/${image}`} alt="">
-</li>
+    <li>
+        <img src={`/../vaerk/${plakat}`} alt="">
+    </li>
 <div>
     <li>
         <h2>{titel}</h2>
@@ -14,22 +14,49 @@ const {image, genre, beskrivelse, titel, spilledatoer} = Astro.props;
         <p>{beskrivelse}</p>
     </li>
     <li>
-        <h3>Spilledatoer</h3>
-        <p>{spilledatoer}</p>
-    </li>
-    <li>
         <a href="https://www.place2book.com/da/sw2/sales/event_list/EM12959?fbclid=IwY2xjawJGhH1leHRuA2FlbQIxMAABHaDiQ96phJBmChaRZfnhbmfnEWnIwnAc7x8bMUq4BNwixACMJb8ccJHjBA_aem_Hz9rmvYZbzme4TkClU5fNA" target=”_blank1”>
         <Button>billetter</Button>
         </a>
     </li>
 </div>
+<ul>
+    <li>
+        <h3>Spilledatoer</h3>
+    </li>
+    <li>
+        <p>{full_date_1}</p>
+    </li>
+    <li>
+        <p>{full_date_2}</p>
+    </li>
+    <li>
+        <p>{full_date_3}</p>
+    </li>
+</ul>
 
 <style>
+    @media (width<950px){
+            img{
+                display:none
+            }
+            }
     div{
-        padding-top:2.2rem;
         p{
         max-width: 89ch;
         align-items: center;
         }
-        }  
+        } 
+
+        ul{
+            overflow:hidden;
+            background-color: var(--blue-opacity01);
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            box-shadow: var(--card-boxshadow);
+            transition: 0.3s;
+            &:hover{
+                background-color: var(--blue-secondary02);
+                color:var(--white-primary01);
+            }
+        }
 </style>

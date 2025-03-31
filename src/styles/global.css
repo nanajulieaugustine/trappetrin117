@@ -34,7 +34,6 @@
   --card-border-radius: 15px;
   --card-padding: 2.75rem 2.2rem;
   --card-bg: blur(16px);
-  --card-border: 1px solid var(--yellow-tertiary03);
   --card-boxshadow: 4px 6px 12px rgba(0, 0, 0, 0.2);
 }
 

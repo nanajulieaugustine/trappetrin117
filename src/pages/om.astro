@@ -31,6 +31,11 @@ const about = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/abou
                 <h2>medea</h2>
             </section>
          </div>
+        <section class="quote no-padding">
+          <h1>"tag med os til næste etage"</h1>
+          <video src="../om/medea_horizontal.mp4" autoplay loop></video>
+        </section>
+          
 </Layout>
 
 <style>
@@ -81,12 +86,22 @@ section {
   }
   > * {
     max-width: 50ch;
-    color: color-mix(in oklab, var(--bg) var(--color-mix,), CanvasText);
   }
   
   h1, h2 {
     color:var(--beige-primary03);
   }
     }
+}
+.quote{
+  display:grid;
+  gap:20px;
+  h1{
+    padding-inline:var(--content-width);
+    text-align: center;
+  }
+  video{
+    width:100vw;
+  }
 }
 </style>
