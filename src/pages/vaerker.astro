@@ -9,21 +9,21 @@ const vaerker = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/va
     apikey: key,
   },
 }).then((response) => response.json());
-console.log("LISTE", vaerker)
 ---
 <Layout>
-    <section>
-       <article>
-        <h1>aktuelle værker</h1>
-          <a href="../pages/vaerk_hos_os">Arkiv af tidligere værker</a>
-       </article>
-       <ul>
-        {vaerker.map((vaerker)=>(
-            <VaerkerListe image={vaerker.image} genre={vaerker.genre} beskrivelse={vaerker.beskrivelse} titel={vaerker.titel} spilledatoer={vaerker.spilledatoer}/>
-        ))
-        }
-    </ul>
-    </section>
+       <div>
+        <section class="no-padding">
+            <h1>aktuelle værker</h1>
+        </section>
+        <section class="no-padding">
+          <ul>
+            {vaerker.map((vaerker)=>(
+                <VaerkerListe image={vaerker.image} genre={vaerker.genre} beskrivelse={vaerker.beskrivelse} titel={vaerker.titel} spilledatoer={vaerker.spilledatoer} link={vaerker.id}/>
+            ))
+            }
+        </ul>
+        </section>
+     </div>
 </Layout>
 
 <style>
@@ -37,8 +37,46 @@ console.log("LISTE", vaerker)
       }
     }
   }
+  div{
+        scroll-snap-type: inline mandatory;
+        display: flex;
+        overflow-x: auto;
+  
+  > * {
+    flex: 1 0 70%;
+  }
+section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  background: var(--red-secondary01);
+  block-size: 100svh;
+  display: grid;
+  place-content: center;
+
+  &:nth-child(even){
+    background-color: var(--red-tertiary01);
+  }
+  > * {
+    /* max-width: 50ch; */
+    color: color-mix(in oklab, var(--bg) var(--color-mix,), CanvasText);
+  }
+  
+  h1, h2 {
+    color:var(--beige-primary03);
+  }
+    }
+}
     ul{
         display:flex;
        gap:20px;
+       @media (width<1050px){
+            display:flex;
+            flex-direction: column;
+            }
+            @media (width>1800px){
+            padding-inline: var(--content-width);
+            padding-top: var(--content-height);
+            padding-bottom: var(--content-height);
+          }
     }
 </style>

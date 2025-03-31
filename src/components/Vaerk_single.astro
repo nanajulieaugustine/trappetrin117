@@ -1,17 +1,14 @@
 ---
-import Titel from "../components/Titel.astro";
 import Button from "./Button.astro";
-const {image, genre, beskrivelse, titel, spilledatoer, link} = Astro.props;
+const {image, genre, beskrivelse, titel, spilledatoer} = Astro.props;
 ---
 
 <li>
-    <Titel>{genre}</Titel>
-    <a href={"/vaerker/"+link}> <img src={`/../vaerker/${image}`} alt=""></a>
+    <img src={`/../vaerker/${image}`} alt="">
 </li>
 <div>
     <li>
-        <a href={"/vaerker/"+link}> 
-        <h2>{titel}</h2></a>
+        <h2>{titel}</h2>
     </li>
     <li>
         <p>{beskrivelse}</p>
@@ -33,20 +30,6 @@ const {image, genre, beskrivelse, titel, spilledatoer, link} = Astro.props;
         p{
         max-width: 89ch;
         align-items: center;
-        color:var(--white-primary01);
-        }
-        h3{
-            color:var(--white-primary01);
         }
         }  
-        img{
-            transition: 0.5s;
-            @media (width<1050px){
-            display:none;
-            }
-            &:hover{
-                opacity: 0.5;
-                transition: opacity 1.2s ease-out;
-            }
-        } 
 </style>

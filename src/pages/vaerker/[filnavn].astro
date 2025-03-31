@@ -1,0 +1,41 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import VaerkSingle from "../../components/Vaerk_single.astro";
+
+export async function getStaticPaths() {
+  const url = "https://yijcdequtckxaljvvgih.supabase.co/rest/v1/vaerker";
+  const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpamNkZXF1dGNreGFsanZ2Z2loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1NjM4OTgsImV4cCI6MjA1ODEzOTg5OH0.F4NYK0yQa7OpLi5q47PgDg5tU0tn6G5btG9VgPnfKzo";
+
+  const options = {
+    headers: {
+      apikey:key
+    }
+  }
+  
+  const vaerker = await fetch(url, options).then(res=>res.json())
+  
+  return vaerker.map(vaerk => ({
+      params: { filnavn: vaerk.id }, 
+      props: { vaerk } 
+    }))
+}
+
+const { vaerk } = Astro.props;
+console.log(vaerk)
+---
+
+<Layout>
+  <section>
+    <ul>
+   <VaerkSingle image={vaerk.image} genre={vaerk.genre} beskrivelse={vaerk.beskrivelse} titel={vaerk.titel} spilledatoer={vaerk.spilledatoer}/>
+      </ul>
+  </section>
+
+</Layout>
+
+<style>
+  ul{
+    display:flex;
+    gap:20px;
+  }
+</style>
