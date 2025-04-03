@@ -23,13 +23,33 @@ export async function getStaticPaths() {
 
 const { vaerk } = Astro.props;
 console.log(vaerk)
+
+/*slice til de aktive*/
 ---
 
 <Layout>
   <section class="info">
     <ul>
-   <VaerkSingle plakat={vaerk.plakat} genre={vaerk.genre} beskrivelse={vaerk.beskrivelse} titel={vaerk.titel} spilledatoer={vaerk.spilledatoer} full_date_1={vaerk.full_date_1} full_date_2={vaerk.full_date_2} full_date_3={vaerk.full_date_3}/>
+   <VaerkSingle plakat={vaerk.plakat} genre={vaerk.genre} beskrivelse={vaerk.beskrivelse} titel={vaerk.titel} spilledatoer={vaerk.spilledatoer} varighed={vaerk.varighed}/>
       </ul>
+      <ul class="datoer">
+        <li>
+            <h2>Spilledatoer</h2>
+        </li>
+        <li><h3>{vaerk.lokation_1}</h3></li>
+        <li>
+            {vaerk.full_date_1}
+        </li>
+        <li>
+            {vaerk.full_date_2}
+        </li>
+        <li>
+            {vaerk.full_date_3}
+        </li>
+        <li><h3>{vaerk.lokation_2}</h3></li>
+        <li>{vaerk.full_date_4}</li>
+        <li>{vaerk.full_date_5}</li>
+    </ul>
     </section>
     <section>
       <h1>{vaerk.quote}</h1>
@@ -58,6 +78,24 @@ console.log(vaerk)
           <ul>
             <Medvirkende image={vaerk.medvirkende_7_img} stilling={vaerk.medvirkende_7_stilling} navn={vaerk.medvirkende_7_navn}/>
           </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_8_img} stilling={vaerk.medvirkende_8_stilling} navn={vaerk.medvirkende_8_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_9_img} stilling={vaerk.medvirkende_9_stilling} navn={vaerk.medvirkende_9_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_10_img} stilling={vaerk.medvirkende_10_stilling} navn={vaerk.medvirkende_10_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_11_img} stilling={vaerk.medvirkende_11_stilling} navn={vaerk.medvirkende_11_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_12_img} stilling={vaerk.medvirkende_12_stilling} navn={vaerk.medvirkende_12_navn}/>
+          </ul>
+          <ul>
+            <Medvirkende image={vaerk.medvirkende_13_img} stilling={vaerk.medvirkende_13_stilling} navn={vaerk.medvirkende_13_navn}/>
+          </ul>
         </div>
       </section>
 </Layout>
@@ -67,9 +105,17 @@ console.log(vaerk)
     font-size: var(--space-l);
     line-height: 4rem;
   }
-  ul{
+
+    ul{
     display:flex;
-    gap:20px;
+    gap:10px;
+  }
+  @media (width<750px){
+    .info{
+      ul{
+      flex-direction: column;
+    }
+  }
   }
 
   .medvirkende_section{
@@ -100,4 +146,19 @@ console.log(vaerk)
     }
   }
 }
+      .datoer{
+        flex-direction: column;
+            background-color: var(--blue-opacity01);
+            border-radius: var(--card-border-radius);
+            padding: var(--card-padding);
+            box-shadow: var(--card-boxshadow);
+            transition: 0.3s;
+            &:hover{
+                background-color: var(--blue-secondary02);
+                color:var(--white-primary01);
+            }
+            h3{
+              margin-top:1rem;
+            }
+        }
 </style>

@@ -46,7 +46,7 @@
         .line {
       width: 100%;
       height: 2px;
-      background-color: white;
+      background-color: var(--red-tertiary01);
       margin-bottom: 5px;
       transition: 0.2s linear;
     }
@@ -77,32 +77,36 @@
       nav.active .menu {
         display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 92px;
-        width: 100%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        position: fixed;
+        top: 87px;
+        width: 100vw;
+        left:0;
         opacity: 1;
         z-index:1;
-        background-color: #1a1a1a;
+        background-color: var(--beige-primary03);
         padding:2rem;
+        height:100vh;
 
         animation-name: fade;
         animation-duration: 1.2s;
         animation-iteration-count: 1;
-        animation-timing-function: ease-out;
+        animation-timing-function: ease-in-out;
         animation-fill-mode: both;
       }
 
       @keyframes fade {
     0% {
+      left:-100vw;
     opacity: 0;
     }
 
     100% {
+      left:0;
     opacity: 1;
     }
   }
-}</style>
+}
+</style>
 
 <script>
         const burger = document.querySelector('.burger');
