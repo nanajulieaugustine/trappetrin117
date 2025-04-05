@@ -25,7 +25,7 @@ const { vaerk } = Astro.props;
 ---
 
 <Layout>
-  <section class="info">
+  <section class="info no-padding">
     <ul>
       <VaerkSingle 
         plakat={vaerk.plakat} 
@@ -34,8 +34,14 @@ const { vaerk } = Astro.props;
         titel={vaerk.titel} 
         spilledatoer={vaerk.spilledatoer} 
         varighed={vaerk.varighed}
+        display_img_1={vaerk.display_img_1}
+        display_img_2={vaerk.display_img_2}
+        display_img_3={vaerk.display_img_3}
+        trailer={vaerk.trailer}
       />
     </ul>
+  </section>
+  <section>
     <ul class="datoer">
       <li>
           <h2>Spilledatoer</h2>
@@ -84,7 +90,6 @@ const { vaerk } = Astro.props;
 
     ul{
     display:flex;
-    gap:10px;
   }
   @media (width<750px){
     .info{

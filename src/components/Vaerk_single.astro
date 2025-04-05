@@ -1,12 +1,16 @@
 ---
 import Button from "./Button.astro";
-const {plakat, beskrivelse, titel, varighed} = Astro.props;
+const {plakat, beskrivelse, titel, varighed, display_img_1, display_img_2, display_img_3, trailer} = Astro.props;
 ---
-
+    <figure>
+        <img class="photo1" src={`/../vaerk/${display_img_1}`} alt="">
+        <img class="photo2" src={`/../vaerk/${display_img_2}`} alt="">
+        <img class="photo3" src={`/../vaerk/${display_img_3}`} alt="">
+    </figure>
     <li>
         <img src={`/../vaerk/${plakat}`} alt="">
     </li>
-<div>
+    <div>
     <li>
         <h2>{titel}</h2>
     </li>
@@ -39,5 +43,23 @@ const {plakat, beskrivelse, titel, varighed} = Astro.props;
         }
         } 
 
+    figure{
+    width:50%;
+      display: grid;
+      grid-auto-columns: 1fr;
+      grid-auto-rows: min-content;
+      grid-template-areas:
+      "photo1 photo2"
+      "photo1 photo3";
+      .mathilde{
+        grid-area:photo1;
+      }
+      .photo2{
+        grid-area: photo2;
+      }
 
+      .photo3{
+        grid-area: photo3;
+      }
+  }
 </style>
