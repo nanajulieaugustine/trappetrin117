@@ -2,57 +2,66 @@
 import Button from "./Button.astro";
 const {plakat, beskrivelse, titel, varighed, display_img_1, display_img_2, display_img_3, trailer} = Astro.props;
 ---
+<section class="no-padding">
     <figure>
         <img class="photo1" src={`/../vaerk/${display_img_1}`} alt="">
         <img class="photo2" src={`/../vaerk/${display_img_2}`} alt="">
         <img class="photo3" src={`/../vaerk/${display_img_3}`} alt="">
+        <iframe class="trailer" src={trailer}></iframe>
     </figure>
-    <li>
-        <img src={`/../vaerk/${plakat}`} alt="">
-    </li>
+        <img class="plakat" src={`/../vaerk/${plakat}`} alt="">
     <div>
-    <li>
         <h2>{titel}</h2>
-    </li>
-    <li>
         <p>{beskrivelse}</p>
-    </li>
-    <li>
         <h3>Varighed</h3>
         <p>{varighed}</p>
-    </li>
     <li>
         <a href="https://www.place2book.com/da/sw2/sales/event_list/EM12959?fbclid=IwY2xjawJGhH1leHRuA2FlbQIxMAABHaDiQ96phJBmChaRZfnhbmfnEWnIwnAc7x8bMUq4BNwixACMJb8ccJHjBA_aem_Hz9rmvYZbzme4TkClU5fNA" target=”_blank1”>
         <Button>billetter</Button>
         </a>
     </li>
 </div>
+</section>
 
 <style>
-    img{
-        width:80%;
-        @media (width<750px){
-        width:50%;
-        }
-    }
 
+section{
+    display:flex;
+    gap:20px;
+    padding-inline:max(20px, 50% - 90rem / 2);
+  @media (width<750px){
+      flex-direction: column;
+  }
+  @media (width>1800px){
+            padding-inline: var(--content-width);
+            padding-top: var(--content-height);
+            padding-bottom: var(--content-height);
+          }
+
+  .plakat{
+    max-width:20%;
+    height:auto;
+    object-fit:cover;
+  }
     div{
         p{
-        max-width: 89ch;
+        max-width: 69ch;
         align-items: center;
         }
         } 
 
     figure{
-    width:50%;
+    width:30%;
       display: grid;
       grid-auto-columns: 1fr;
       grid-auto-rows: min-content;
       grid-template-areas:
       "photo1 photo2"
-      "photo1 photo3";
-      .mathilde{
+      "photo1 photo3"
+      "trailer trailer";
+      .photo1{
         grid-area:photo1;
+        height:100%;
       }
       .photo2{
         grid-area: photo2;
@@ -61,5 +70,10 @@ const {plakat, beskrivelse, titel, varighed, display_img_1, display_img_2, displ
       .photo3{
         grid-area: photo3;
       }
+      .trailer{
+        grid-area: trailer;
+        width:1200px;
+      }
   }
+}
 </style>
