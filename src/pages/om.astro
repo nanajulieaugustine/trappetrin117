@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Scrollingbar from "../components/Scrollingbar.astro";
+import Vaerk_scrolling from "../components/Vaerk_scrolling.astro"
 
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpamNkZXF1dGNreGFsanZ2Z2loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1NjM4OTgsImV4cCI6MjA1ODEzOTg5OH0.F4NYK0yQa7OpLi5q47PgDg5tU0tn6G5btG9VgPnfKzo";
 
@@ -10,6 +11,14 @@ const about = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/abou
     apikey: key,
   },
 }).then((response) => response.json());
+
+const vaerker = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/vaerker`, {
+  method: "GET",
+  headers: {
+    apikey: key,
+  },
+}).then((response) => response.json());
+const arkiv_vaerker = vaerker.slice(1,2)
 ---
 <Layout>
     <article>
@@ -24,12 +33,10 @@ const about = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/abou
          </ul>
          <figure></figure>
          <div>
-            <section class="no-padding">
-                <h1>arkiv</h1>
-            </section>
-            <section>
-                <h2>medea</h2>
-            </section>
+          {arkiv_vaerker.map((arkiv_vaerker)=>(
+            <Vaerk_scrolling image={arkiv_vaerker.image} genre={arkiv_vaerker.genre} beskrivelse={arkiv_vaerker.beskrivelse} titel={arkiv_vaerker.titel} spilledatoer={arkiv_vaerker.spilledatoer} link={arkiv_vaerker.id}>Arkiv</Vaerk_scrolling>
+            ))
+              }
          </div>
         <section class="quote no-padding">
           <h1>"tag med os til næste etage"</h1>
@@ -63,35 +70,9 @@ const about = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/abou
         background: url(../om/medea_blue_mask.webp) no-repeat center fixed;
     }
 
-    div{
-        position:relative;
-        top:-30vh;
-        scroll-snap-type: inline mandatory;
-        display: flex;
-        overflow-x: auto;
-  
-  > * {
-    flex: 1 0 70%;
-  }
-section {
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-  background: var(--red-secondary01);
-  block-size: 100svh;
-  display: grid;
-  place-content: center;
-
-  &:nth-child(even){
-    background-color: var(--red-tertiary01);
-  }
-  > * {
-    max-width: 50ch;
-  }
-  
-  h1, h2 {
-    color:var(--beige-primary03);
-  }
-    }
+div{
+  position:relative;
+  top:-30vh;
 }
 .quote{
   display:grid;

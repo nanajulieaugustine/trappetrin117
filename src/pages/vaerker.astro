@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import VaerkerListe from "../components/Vaerker_liste.astro";
+import VaerkScrolling from "../components/Vaerk_scrolling.astro";
 const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpamNkZXF1dGNreGFsanZ2Z2loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI1NjM4OTgsImV4cCI6MjA1ODEzOTg5OH0.F4NYK0yQa7OpLi5q47PgDg5tU0tn6G5btG9VgPnfKzo";
 
 const vaerker = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/vaerker`, {
@@ -9,74 +9,11 @@ const vaerker = await fetch(`https://yijcdequtckxaljvvgih.supabase.co/rest/v1/va
     apikey: key,
   },
 }).then((response) => response.json());
+const aktive_vaerker = vaerker.slice(0,1)
 ---
 <Layout>
-       <div>
-        <section class="no-padding">
-            <h1>aktuelle værker</h1>
-        </section>
-        <section class="no-padding">
-          <ul>
-            {vaerker.map((vaerker)=>(
-                <VaerkerListe image={vaerker.image} genre={vaerker.genre} beskrivelse={vaerker.beskrivelse} titel={vaerker.titel} spilledatoer={vaerker.spilledatoer} link={vaerker.id}/>
-            ))
-            }
-        </ul>
-        </section>
-     </div>
+    {aktive_vaerker.map((aktive_vaerker)=>(
+      <VaerkScrolling image={aktive_vaerker.image} genre={aktive_vaerker.genre} beskrivelse={aktive_vaerker.beskrivelse} titel={aktive_vaerker.titel} spilledatoer={aktive_vaerker.spilledatoer} link={aktive_vaerker.id}>aktuelle værker</VaerkScrolling>
+      ))
+    }
 </Layout>
-
-<style>
-  article{
-    display:flex;
-    flex-direction: row;
-    a{
-      color:var( --black-primary02);
-      &:hover{
-        color:var(--red-secondary01);
-      }
-    }
-  }
-  div{
-        scroll-snap-type: inline mandatory;
-        display: flex;
-        overflow-x: auto;
-  
-  > * {
-    flex: 1 0 70%;
-  }
-section {
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-  background: var(--red-secondary01);
-  block-size: 100svh;
-  display: grid;
-  place-content: center;
-
-  &:nth-child(even){
-    background-color: var(--red-tertiary01);
-  }
-  > * {
-    /* max-width: 50ch; */
-    color: color-mix(in oklab, var(--bg) var(--color-mix,), CanvasText);
-  }
-  
-  h1, h2 {
-    color:var(--beige-primary03);
-  }
-    }
-}
-    ul{
-        display:flex;
-       gap:20px;
-       @media (width<1050px){
-            display:flex;
-            flex-direction: column;
-            }
-            @media (width>1800px){
-            padding-inline: var(--content-width);
-            padding-top: var(--content-height);
-            padding-bottom: var(--content-height);
-          }
-    }
-</style>

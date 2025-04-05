@@ -1,0 +1,102 @@
+---
+import Titel from "../components/Titel.astro";
+import Button from "./Button.astro";
+const {image, genre, beskrivelse, titel, spilledatoer, link} = Astro.props;
+---
+<div class="scrolling_container">
+    <section class="no-padding">
+        <h1><slot/></h1>
+    </section>
+    <section  class="no-padding">
+        <ul>
+        <li>
+            <Titel>{genre}</Titel>
+            <a href={"/vaerker/"+link}> <img src={`/../vaerker/${image}`} alt=""></a>
+        </li>
+        <div>
+            <li>
+                <a href={"/vaerker/"+link}> 
+                <h2>{titel}</h2></a>
+            </li>
+            <li>
+                <p>{beskrivelse}</p>
+            </li>
+            <li>
+                <h3>Spilledatoer</h3>
+                <p>{spilledatoer}</p>
+            </li>
+            <li>
+                <a href="https://www.place2book.com/da/sw2/sales/event_list/EM12959?fbclid=IwY2xjawJGhH1leHRuA2FlbQIxMAABHaDiQ96phJBmChaRZfnhbmfnEWnIwnAc7x8bMUq4BNwixACMJb8ccJHjBA_aem_Hz9rmvYZbzme4TkClU5fNA" target=”_blank1”>
+                <Button>billetter</Button>
+                </a>
+            </li>
+        </div>
+        </ul>
+    </section>
+</div>
+
+<style>
+
+    .scrolling_container{
+    scroll-snap-type: inline mandatory;
+    display: flex;
+    overflow-x: auto;
+  
+  > * {
+    flex: 1 0 70%;
+  }
+    section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  background: var(--red-secondary01);
+  block-size: 100svh;
+  display: grid;
+  place-content: center;
+
+  &:nth-child(even){
+    background-color: var(--red-tertiary01);
+  }
+  > * {
+    padding:2rem;
+  }
+  
+  h1, h2 {
+    color:var(--beige-primary03);
+  }
+    }
+    ul{
+        display:flex;
+       gap:20px;
+       @media (width<1050px){
+            display:flex;
+            flex-direction: column;
+            }
+            @media (width>1800px){
+            padding-inline: var(--content-width);
+            padding-top: var(--content-height);
+            padding-bottom: var(--content-height);
+          }
+          div{
+        padding-top:2.2rem;
+        p{
+        max-width: 89ch;
+        align-items: center;
+        color:var(--white-primary01);
+        }
+        h3{
+            color:var(--white-primary01);
+        }
+        }  
+        img{
+            transition: 0.5s;
+            @media (width<1050px){
+            display:none;
+            }
+            &:hover{
+                opacity: 0.5;
+                transition: opacity 1.2s ease-out;
+            }
+        } 
+    }
+    }
+</style>

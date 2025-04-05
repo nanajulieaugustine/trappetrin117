@@ -22,83 +22,59 @@ export async function getStaticPaths() {
 }
 
 const { vaerk } = Astro.props;
-console.log(vaerk)
-
-/*slice til de aktive*/
 ---
 
 <Layout>
   <section class="info">
     <ul>
-   <VaerkSingle plakat={vaerk.plakat} genre={vaerk.genre} beskrivelse={vaerk.beskrivelse} titel={vaerk.titel} spilledatoer={vaerk.spilledatoer} varighed={vaerk.varighed}/>
-      </ul>
-      <ul class="datoer">
-        <li>
-            <h2>Spilledatoer</h2>
-        </li>
-        <li><h3>{vaerk.lokation_1}</h3></li>
-        <li>
-            {vaerk.full_date_1}
-        </li>
-        <li>
-            {vaerk.full_date_2}
-        </li>
-        <li>
-            {vaerk.full_date_3}
-        </li>
-        <li><h3>{vaerk.lokation_2}</h3></li>
-        <li>{vaerk.full_date_4}</li>
-        <li>{vaerk.full_date_5}</li>
+      <VaerkSingle 
+        plakat={vaerk.plakat} 
+        genre={vaerk.genre} 
+        beskrivelse={vaerk.beskrivelse} 
+        titel={vaerk.titel} 
+        spilledatoer={vaerk.spilledatoer} 
+        varighed={vaerk.varighed}
+      />
     </ul>
-    </section>
-    <section>
-      <h1>{vaerk.quote}</h1>
-    </section>
-      <section class="medvirkende_section">
-        <h2>medvirkende</h2>
-        <div class="medvikende_liste">
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_1_img} stilling={vaerk.medvirkende_1_stilling} navn={vaerk.medvirkende_1_navn}/>
+    <ul class="datoer">
+      <li>
+          <h2>Spilledatoer</h2>
+      </li>
+      <li><h3>{vaerk.lokation_1}</h3></li>
+      <li>{vaerk.full_date_1}</li>
+      <li>{vaerk.full_date_2}</li>
+      <li>{vaerk.full_date_3}</li>
+      <li><h3>{vaerk.lokation_2}</h3></li>
+      <li>{vaerk.full_date_4}</li>
+      <li>{vaerk.full_date_5}</li>
+    </ul>
+  </section>
+  <section>
+    <h1>{vaerk.quote}</h1>
+  </section>
+  <section class="medvirkende_section">
+    <h2>Medvirkende</h2>
+    <div class="medvikende_liste">
+      {Array.from({ length: 13 }, (_, index) => {
+        const medvirkendeStilling = vaerk[`medvirkende_${index + 1}_stilling`];
+        const medvirkendeImage = vaerk[`medvirkende_${index + 1}_img`];
+        const medvirkendeNavn = vaerk[`medvirkende_${index + 1}_navn`];
+        const isNotActive = !medvirkendeStilling || medvirkendeStilling.trim() === '';
+
+        return (
+          <ul class={isNotActive ? 'not_active' : ''}>
+            <Medvirkende 
+              image={medvirkendeImage} 
+              stilling={medvirkendeStilling} 
+              navn={medvirkendeNavn} 
+            />
           </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_2_img} stilling={vaerk.medvirkende_2_stilling} navn={vaerk.medvirkende_2_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_3_img} stilling={vaerk.medvirkende_3_stilling} navn={vaerk.medvirkende_3_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_4_img} stilling={vaerk.medvirkende_4_stilling} navn={vaerk.medvirkende_4_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_5_img} stilling={vaerk.medvirkende_5_stilling} navn={vaerk.medvirkende_5_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_6_img} stilling={vaerk.medvirkende_6_stilling} navn={vaerk.medvirkende_6_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_7_img} stilling={vaerk.medvirkende_7_stilling} navn={vaerk.medvirkende_7_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_8_img} stilling={vaerk.medvirkende_8_stilling} navn={vaerk.medvirkende_8_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_9_img} stilling={vaerk.medvirkende_9_stilling} navn={vaerk.medvirkende_9_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_10_img} stilling={vaerk.medvirkende_10_stilling} navn={vaerk.medvirkende_10_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_11_img} stilling={vaerk.medvirkende_11_stilling} navn={vaerk.medvirkende_11_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_12_img} stilling={vaerk.medvirkende_12_stilling} navn={vaerk.medvirkende_12_navn}/>
-          </ul>
-          <ul>
-            <Medvirkende image={vaerk.medvirkende_13_img} stilling={vaerk.medvirkende_13_stilling} navn={vaerk.medvirkende_13_navn}/>
-          </ul>
-        </div>
-      </section>
+        );
+      })}
+    </div>
+  </section>
 </Layout>
+
 
 <style>
   h1{
@@ -160,5 +136,9 @@ console.log(vaerk)
             h3{
               margin-top:1rem;
             }
+        }
+
+        .not_active{
+          display:none
         }
 </style>
