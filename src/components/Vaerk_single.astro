@@ -2,13 +2,13 @@
 import Button from "./Button.astro";
 const {plakat, beskrivelse, titel, varighed, display_img_1, display_img_2, display_img_3, trailer} = Astro.props;
 ---
-<section class="no-padding">
-    <figure>
+<section>
+    <!-- <figure>
         <img class="photo1" src={`/../vaerk/${display_img_1}`} alt="">
         <img class="photo2" src={`/../vaerk/${display_img_2}`} alt="">
         <img class="photo3" src={`/../vaerk/${display_img_3}`} alt="">
         <iframe class="trailer" src={trailer}></iframe>
-    </figure>
+    </figure> -->
         <img class="plakat" src={`/../vaerk/${plakat}`} alt="">
     <div>
         <h2>{titel}</h2>
@@ -28,7 +28,6 @@ const {plakat, beskrivelse, titel, varighed, display_img_1, display_img_2, displ
 section{
     display:flex;
     gap:20px;
-    padding-inline:max(20px, 50% - 90rem / 2);
   @media (width<750px){
       flex-direction: column;
   }
@@ -39,7 +38,7 @@ section{
           }
 
   .plakat{
-    max-width:20%;
+    max-width:30%;
     height:auto;
     object-fit:cover;
   }
@@ -47,6 +46,7 @@ section{
         p{
         max-width: 69ch;
         align-items: center;
+        padding-bottom:1.5rem;
         }
         } 
 

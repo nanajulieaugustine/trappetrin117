@@ -6,17 +6,17 @@ import Titel from "./Titel.astro";
 <li>
     <Titel>{stilling}</Titel>
     <img src={`/../vaerk/${image}`} alt="">
-</li>
-<li>
     <h3>{navn}</h3>
 </li>
 
-<style>
-    li{
-        align-items: center;
-        justify-content: center;
+<style> 
+
+    img{
+        padding-top:1rem;
     }
+
     h3{
+        padding-top:0.5rem;
         color:var(--white-primary01);
     }
 </style>
