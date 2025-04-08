@@ -5,7 +5,13 @@ const {image, genre, beskrivelse, titel, spilledatoer, link} = Astro.props;
 ---
 <div class="scrolling_container">
     <section class="no-padding">
-        <h1><slot/></h1>
+        <h1><slot/>
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 25 25" fill="none">
+            <path d="M12.5 21C7.8 21 4 17.2 4 12.5C4 7.8 7.8 4 12.5 4C17.2 4 21 7.8 21 12.5C21 17.2 17.2 21 12.5 21ZM12.5 5C8.35 5 5 8.35 5 12.5C5 16.65 8.35 20 12.5 20C16.65 20 20 16.65 20 12.5C20 8.35 16.65 5 12.5 5Z" fill="#EBE6DA"/>
+            <path d="M12.35 17.35L11.65 16.65L15.8 12.5L11.65 8.35L12.35 7.65L17.2 12.5L12.35 17.35Z" fill="#EBE6DA"/>
+            <path d="M8 12H16.5V13H8V12Z" fill="#EBE6DA"/>
+          </svg>
+        </h1>
     </section>
     <section  class="no-padding">
         <ul>
@@ -41,9 +47,18 @@ const {image, genre, beskrivelse, titel, spilledatoer, link} = Astro.props;
     scroll-snap-type: inline mandatory;
     display: flex;
     overflow-x: auto;
+    h1{
+      display: flex;
+      justify-content: center;
+      gap:10px;
+  }
   
   > * {
     flex: 1 0 70%;
+
+    @media (width<750px){
+            flex: 1 0 100%;
+          }
   }
     section {
   scroll-snap-align: center;
