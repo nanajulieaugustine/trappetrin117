@@ -1,22 +1,33 @@
 ---
 const {navn, stilling, image} = Astro.props;
-import Titel from "./Titel.astro";
 ---
 
 <li>
-    <Titel>{stilling}</Titel>
     <img src={`/../vaerk/${image}`} alt="">
-    <h3>{navn}</h3>
+    <div>
+        <h3>{navn}</h3>
+        <h3 class="stilling">{stilling}</h3>
+    </div>
 </li>
 
 <style> 
 
     img{
-        padding-top:1rem;
+        padding-bottom:1rem;
     }
-
-    h3{
+    div{
+        display:flex;
+        justify-content: space-between;
+        align-items: start;
+        h3{
         padding-top:0.5rem;
         color:var(--white-primary01);
     }
+    .stilling{
+        font-weight: 600;
+        color: var(--black-primary02);
+        font-size: var(  --space-xs);
+        color:#e1dfdf;
+    }
+}
 </style>
