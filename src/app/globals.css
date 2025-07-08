@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --background: #E2E2E2;
+  --foreground: #1E1E1E;
+  --yellow: #ED9E00;
+  --blue: #008BCB;
+  --white: #F4F4F4;
+  --content-width: max(20px, 50% - 50rem / 2);
+  --content-width-wide:  max(20px, 50% - 80rem / 2);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-size:18px;
+  font-weight: 400;
+}
+
+h1{
+  font-size: 96px;
+  line-height: 88%;
+  font-weight: 800;
+  text-transform: uppercase;
+  color:var(--yellow);
+  text-wrap: balance;
+  margin-bottom:1.5rem;
+    @media (max-width: 1200px) {
+    font-size: 4.5rem;
+  }
+}
+
+h2{
+  font-size:32px;
+  font-weight:600;
+  text-transform: uppercase;
+  line-height:1;
+  color: var(--blue);
+    text-wrap: balance;
+}
+
+h3{
+  font-weight: 800;
+  text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.unerline{
+  text-decoration: underline;
+}
+
+.thin{
+  font-weight: 200;
+}
+
+.italic{
+  text-decoration: italic;
+}
+
+.bold{
+  font-weight: 500;
+}
+
+.regular{
+  font-weight:300;
+  color:var(--foreground);
+}
+
+p{
+  line-height: 1.5;
+  margin-bottom:1rem;
+  margin-top:0.5rem;
+  text-wrap: pretty;
+}
+
+.white{
+  color:var(--background);
+}
+
+.black{
+  color:var(--foreground);
+}
+
+.blue{
+  color:var(--blue);
+}
+
+.capitalized{
+  text-transform: capitalize;
+}
+
+blockquote{
+  font-size:36px;
+  font-weight:800;
+  line-height: 80%;
+}
+
+li{
+  list-style: none;
+}
+
+section{
+  margin-top:9rem;
+  margin-bottom:4rem;
+}
+
+details {
+  color: hsl(190 30% 12%);
+  border-bottom: 1px solid #dadada;
+  transition: all 0.5s ease;
+  @media (prefers-reduced-motion: no-preference) {
+    interpolate-size: allow-keywords;
+  }
+
+  &[open] {
+    --r: z 90deg;
+  }
+
+  &::details-content {
+    transition: all 0.5s ease, content-visibility 0.5s allow-discrete,
+      rotate 0.3s ease;
+    height: 0;
+    overflow: clip;
+  }
+  &[open]::details-content {
+    height: auto;
+  }
+
+  @supports (interpolate-size: allow-keywords) {
+    :root {
+      interpolate-size: allow-keywords;
+    }
+    [open]::details-content {
+      height: auto;
+    }
+  }
+}
