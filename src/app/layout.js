@@ -5,6 +5,7 @@ import Header from "@/components/header/Header";
 import SideMenu from "@/components/header/SideMenu";
 import Footer from "@/components/omos/Footer";
 import { useState } from "react";
+import { HeaderStyleProvider } from "@/hooks/header-context";
 
 export default function RootLayout({ children }) {
   const [showSideMenu, setShowSideMenu] = useState(false);
@@ -14,10 +15,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="da">
       <body>
-        <Header showSideMenu={showSideMenu} toggleSideMenu={toggleSideMenu} />
-        <SideMenu isVisible={showSideMenu} toggleSideMenu={toggleSideMenu} />
-        {children}
-        <Footer/>
+        <HeaderStyleProvider>
+          <Header showSideMenu={showSideMenu} toggleSideMenu={toggleSideMenu} />
+          <SideMenu
+            isVisible={showSideMenu}
+            toggleSideMenu={toggleSideMenu}
+          />
+          {children}
+          <Footer />
+        </HeaderStyleProvider>
       </body>
     </html>
   );

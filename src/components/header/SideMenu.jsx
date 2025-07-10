@@ -10,7 +10,7 @@ const SideMenu = ({ isVisible, toggleSideMenu }) => {
 
   const links = [
     { href: "/omos", text: "Om Os" },
-    { href: "/arrangementer", text: "Værkarkiv" },
+    { href: "/vaerkarkiv", text: "Værkarkiv" },
     { href: "/vaerk_hos_os", text: "Dit Værk Hos Os" },
     { href: "/vaerkarkiv", text: "Bestyrelsen" },
   ];
@@ -37,7 +37,7 @@ const SideMenu = ({ isVisible, toggleSideMenu }) => {
                 <Link href={link.href} onClick={toggleSideMenu}>
                   <h1 className="white">{link.text}</h1>
                 </Link>
-                <LineAnimation isHovered={hoveredLink === idx} />
+                <LineAnimation isHovered={hoveredLink === idx} color={"white"} />
               </li>
             ))}
           </ul>

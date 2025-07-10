@@ -1,3 +1,5 @@
+"use client";
+import { useDarkBackground } from "@/hooks/useDarkBackground";
 
 export default function Home({
   poster,
@@ -5,8 +7,11 @@ export default function Home({
   loop = true,
   muted = true,
 }) {
+
+  const containerRef = useDarkBackground(0.1);
+
   return (
-     <div id="dark" style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden', display: 'flex' }}>
+     <div ref={containerRef} style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden', display: 'flex' }}>
       <video
         src="./index/medea_trailer.mp4"
         poster={poster}
