@@ -12,7 +12,7 @@ const SideMenu = ({ isVisible, toggleSideMenu }) => {
     { href: "/omos", text: "Om Os" },
     { href: "/vaerkarkiv", text: "Værkarkiv" },
     { href: "/vaerk_hos_os", text: "Dit Værk Hos Os" },
-    { href: "/vaerkarkiv", text: "Bestyrelsen" },
+    { href: "/bestyrelsen", text: "Bestyrelsen" },
   ];
 
   return (

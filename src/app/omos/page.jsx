@@ -1,7 +1,7 @@
 import FirstSection from "@/components/omos/FirstSection";
 import SecondSection from "@/components/omos/SecondSection";
 import LineAnimationInView from "@/components/animationer/LineAnimationINView";
-import ThirdSection from "@/components/omos/ThirsSection";
+import ThirdSection from "@/components/omos/ThirdSection";
 import ParallaxText from "@/components/omos/ParallaxText";
 
 const OmOs = () => {

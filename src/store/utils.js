@@ -16,3 +16,5 @@ export const activeEvent = (events) => events.filter((event) => event.aktuel ===
 
 //vis kun hvis event er inaktiv
 export const inActiveEvent = (events) => events.filter((event) => event.aktuel === false);
+
+export const allEvents = [];

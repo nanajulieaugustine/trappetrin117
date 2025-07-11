@@ -5,20 +5,28 @@ import { Navigation, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
-
+import bestyrelse from "@/backend/bestyrelse.json";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { CgArrowLongLeft, CgArrowLongRight } from "react-icons/cg";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ThirdSection({ event }) {
+export default function RepreasentanterCard() {
+      const repraesentanter = bestyrelse[0].repraesentanter;
+
   const swiperRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(1);
 
   return (
     <div className="w-full h-screen flex justify-between relative overflow-hidden">
         <div>
-          <blockquote className="max-w-100 italic ml-5">{`"${event.quote}"`}</blockquote>
+            <ul>
+                 {repraesentanter.map((person, i) => (
+                    <li key={i}>
+                        <h3>{person.navn}</h3>
+                    </li>
+                    ))}
+            </ul>
         </div>
       {/* Swiper */}
       <Swiper
@@ -37,19 +45,16 @@ export default function ThirdSection({ event }) {
         }}
         className="w-[500] h-screen"
       >
-        {event.billeder.map((billede, i) => (
-          <SwiperSlide
-            key={i}
-            className="flex justify-center items-center"
-          >
-            <Image
-              src={`/arrangementer/${billede}`}
-              alt={event.titel}
-              fill
-              className="object-cover"
-            />
-          </SwiperSlide>
-        ))}
+        {repraesentanter.map((person, i) => (
+            <SwiperSlide key={i} className="flex justify-center items-center">
+                <Image
+                src={`/bestyrelse/${person.billede}`}
+                alt={person.navn}
+                fill
+                className="object-cover"
+                />
+            </SwiperSlide>
+            ))}
       </Swiper>
 
       {/* Pile */}
@@ -84,7 +89,7 @@ export default function ThirdSection({ event }) {
           </motion.span>
         </AnimatePresence>
         {" / "}
-        {String(event.billeder.length).padStart(2, "0")}
+        {String(repraesentanter.length).padStart(2, "0")}
       </div>
     </div>
   );

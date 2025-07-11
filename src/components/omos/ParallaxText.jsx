@@ -4,7 +4,7 @@ import React from "react";
 import LineAnimationInView from "../animationer/LineAnimationINView";
 
 const ParallaxText = () => {
-  const baseText = "Monsior Min-An*s vinder af Quongas særpris 2025 | "; 
+  const baseText = "Monsør Min-An*s vinder af Quongas hovedpris 2025 | "; 
 
   return (
     <div className="overflow-x-hidden whitespace-nowrap w-full py-25 flex flex-col gap-2">

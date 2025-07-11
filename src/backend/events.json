@@ -7,6 +7,7 @@
     "varighed": "45 min u. pause",
     "plakat": "monsior-min-anus/monsior_min-anus_plakat.webp",
     "aktuel": true,
+    "season": "sæson 2025",
     "quote": "Gennem dette stykke, vil vi på humoristisk vis sætte konstruktive spørgsmål til skolesystemet og trivslen for elever og lærere",
     "spilledatoer": [
       {
@@ -48,7 +49,7 @@
         "dato": "16. juni 2025",
         "tidspunkt": "kl. 18.30",
         "adresse": "UNGEHUSET LUCERNA AHLGADE 3F, 4300 HOLBÆK",
-        "pris": "90-175 kr.",
+        "pris": "60 kr.",
         "billetLink": "https://www.place2book.com/da/sw2/sales/event_list/EM12959?fbclid=IwY2xjawJGhH1leHRuA2FlbQIxMAABHaDiQ96phJBmChaRZfnhbmfnEWnIwnAc7x8bMUq4BNwixACMJb8ccJHjBA_aem_Hz9rmvYZbzme4TkClU5fNA"
       },
        {
@@ -83,15 +84,24 @@
        "monsior-min-anus/mma3.webp",
       "monsior-min-anus/mma4.webp",
       "monsior-min-anus/mma5.webp"
-    ]
+    ],
+        "priser": [
+      {
+        "festival": "quonga teaterfestival",
+        "anno": "2025",
+        "pris": "hovedpris"
+      }]
   },
     {
     "id": "1",
     "titel": "Medea",
     "beskrivelse": "Euripides' Medea er kendt som tragedien om kvinden, der blind af raseri tager den grummeste hævn over sin elskede, børnenes far, der har forladt hende. Medea er et symbol på en handlekraftig kvinde og er nok den første feministiske karakter i litteraturen. Medea fremtræder ikke som hverken skurken eller helten. Hendes agenda er drevet af had, som er fremsprunget af jalousi og et knust hjerte.",
     "genre": "Teater",
+    "varighed": "55 min u. pause",
     "plakat": "medea/medea_plakat.webp",
+    "trailer": "https://www.youtube.com/embed/ShBgMLVHZDc?si=PqQvS8y3vQgNLhun",
     "aktuel": false,
+    "season": "sæson 2024",
     "quote": "Jeg synes det er sjovt at tænke på min arbejdsproces til stykkets kostumer og scenografi som en oldgræsk myte. Som om jeg gennem kostumerne spinder fortællingen som oltiden moirer, der spinder, måler og klipper livets tråde",
     "spilledatoer": [
       {
@@ -109,7 +119,7 @@
         "billetLink": "https://www.place2book.com/da/sw2/sales/event_list/EM12959?fbclid=IwY2xjawJGhH1leHRuA2FlbQIxMAABHaDiQ96phJBmChaRZfnhbmfnEWnIwnAc7x8bMUq4BNwixACMJb8ccJHjBA_aem_Hz9rmvYZbzme4TkClU5fNA"
       },
       {
-        "dato": "6. september 2024",
+        "dato": "8. september 2024",
         "tidspunkt": "kl. 16.00",
         "adresse": "Teatret Fair Play Borchsvej 3, 4300 Holbæk",
          "pris": "80 kr.",
@@ -159,7 +169,7 @@
       },
        {
         "navn": "Frida Sjødahl Østergaard",
-        "stilling": "kostumier, afvikler"
+        "stilling": "kostumier, scenograf, afvikler"
       },
        {
         "navn": "Viktoria Lund",
@@ -168,13 +178,43 @@
        {
         "navn": "August Fogh Hauskov",
         "stilling": "komponist"
+      },
+        {
+        "navn": "Nana Julie Augustine",
+        "stilling": "fotograf, klipper"
+      },
+        {
+        "navn": "Asako Kido Parr",
+        "stilling": "grafiker"
       }
     ],
     "billeder": [
       "medea/medea1.webp",
       "medea/medea2.webp",
       "medea/medea3.webp",
-      "medea/medea4.webp"
+      "medea/medea4.webp",
+      "medea/medea5.webp",
+      "medea/medea6.webp",
+      "medea/medea7.webp",
+      "medea/medea8.webp",
+      "medea/medea9.webp",
+      "medea/medea10.webp",
+      "medea/medea11.webp",
+      "medea/medea12.webp",
+      "medea/medea13.webp",
+      "medea/medea14.webp",
+      "medea/medea15.webp",
+      "medea/medea16.webp",
+      "medea/medea17.webp",
+      "medea/medea18.webp",
+      "medea/medea19.webp",
+      "medea/medea20.webp",
+      "medea/medea21.webp",
+      "medea/medea22.webp",
+      "medea/medea23.webp",
+      "medea/medea24.webp",
+      "medea/medea25.webp",
+      "medea/medea26.webp"
     ]
   }
 ]

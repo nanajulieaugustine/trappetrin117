@@ -1,0 +1,34 @@
+[
+  {
+    "id": "0",
+    "name": "vis alle"
+  },
+  {
+    "id": "1",
+    "name": "teater"
+  },
+  {
+    "id": "2",
+    "name": "billedkunst"
+  },
+  {
+    "id": "3",
+    "name": "dans"
+  },
+  {
+    "id": "4",
+    "name": "musik"
+  },
+  {
+    "id": "5",
+    "name": "litteratur"
+  },
+  {
+    "id": "6",
+    "name": "film"
+  },
+  {
+    "id": "7",
+    "name": "kombinationer"
+  }
+]

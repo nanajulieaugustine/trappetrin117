@@ -19,6 +19,7 @@
     "react-slick": "^0.30.3",
     "react-use": "^17.6.0",
     "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.10",
     "useref": "^1.4.4"
   },
   "devDependencies": {

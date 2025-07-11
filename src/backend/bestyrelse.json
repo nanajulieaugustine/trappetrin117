@@ -1,0 +1,52 @@
+[{
+   "bestyrelse": [
+      {
+        "navn": "SARAH CHABERT SAUGMANN",
+        "stilling": "leder",
+        "beskrivelse": "Sarah er medstifter af foreningen og står primært for markedsføring og PR.",
+        "billede": "bestyrelse/sarah_saugmann.webp",
+        "email": "sarah.saugmann@gmail.com"
+      },
+        {
+        "navn": "josefine aviaja christiansen",
+        "stilling": "leder",
+        "beskrivelse": "Josefine er medstifter af foreningen og står primært for økonomi og bogføring.",
+        "billede": "bestyrelse/josefine_aviaja.webp",
+        "email": "josefine.c@privat.dk"
+      },
+         {
+        "navn": "nana julie augustine",
+        "stilling": "webudvikler",
+        "beskrivelse": "Nana er webudvikler for foreningen og står primært for programmering, design og opretholdelse af hjemmesiden.",
+        "billede": "bestyrelse/nana_augustine.webp",
+         "email": "nana.jensen.1012@gmail.com"
+      }
+    ],
+   "repraesentanter": [
+      {
+        "navn": "lærke pedersen",
+        "stilling": "skuespiller",
+        "beskrivelse": "Lærke dimmiterede fra Holbæk Drama College i 2024",
+        "billede": "repraesentanter/laerke_pedersen.webp"
+      },
+      {
+        "navn": "august fogh hauskov",
+        "stilling": "musiker",
+        "beskrivelse": "August dimitterede fra Ung Musik Holbæk i 2023 og er nu studerende på MGK-hovedstaden.",
+        "billede": "repraesentanter/august_fogh.webp"
+      },
+         {
+        "navn": "Lucas Nielsen",
+        "stilling": "forfatter",
+        "beskrivelse": "Lucas er dimmiterede fra Forfatterskolen For Unge i 2025.",
+        "billede": "repraesentanter/lucas_nielsen.webp"
+      },
+               {
+        "navn": "Estrid Dandanell Rothman",
+        "stilling": "filmskaber",
+        "beskrivelse": "Estrid dimmiterede fra Filmhøjskolen Møn i foråret 2024.",
+        "billede": "repraesentanter/estrid_rothman.webp"
+      }
+    ]
+}
+]

@@ -1,42 +1,56 @@
-"use client";
-import events from "@/backend/events.json"
+import events from "@/backend/events.json";
 import Image from "next/image";
-import { inActiveEvent } from "@/store/utils";
+import Button from "../global/Button";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useDarkBackground } from "@/hooks/useDarkBackground";
+import { inActiveEvent } from "@/store/utils";
+import ScrollFlow from "../animationer/ScrollFlow";
 
-const ListCardInActive = () => {
-      const containerRef = useDarkBackground(0.1);
-    const InaktiveEvents = inActiveEvent(events);
+const ListCardAktiv = ({ activeCategory }) => {
+  const inAktiveEvents = inActiveEvent(events);
 
-    const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
+  const filteredEvents = inAktiveEvents.filter((event) => {
+    if (activeCategory === "vis alle") return true;
+    return event.season.toLowerCase() === activeCategory.toLowerCase();
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-
-    return ( 
-
-    <ul className="flex justify-between gap-10">
-      {InaktiveEvents.map((event) => (
-        <li key={event.id}>
-          <Link className="flex gap-5" href={`/arrangementer/${event.id}`}>
-          <div className="max-w-100">
-          <h2>{event.genre}</h2>
-          <p className="pt-5">{event.beskrivelse}</p>
-          </div>
-               <Image
+  return (
+    <ul className="grid gap-10">
+      {filteredEvents.length > 0 ? (
+        filteredEvents.map((event) => (
+          <li key={event.id}>
+            <ScrollFlow speed={-50}>
+            <Link className="flex gap-5" href={`/arrangementer/${event.id}`}>
+              <Image
                 src={`/arrangementer/${event.plakat}`}
                 height={400}
                 width={400}
                 alt={event.titel}
-                />
-        </Link>
-        </li>
-      ))}
-    </ul> );
-}
- 
-export default ListCardInActive;
+              />
+              <div className="max-w-100">
+                <div className="flex gap-2">
+                <h3 className="thin italic">{event.genre}</h3>
+                <span className="thin italic">|</span>
+                <h3 className="thin italic">{event.season}</h3>
+                </div>
+                <h2 className="black italic">{event.titel}</h2>
+                <p className="pt-5">{event.beskrivelse}</p>
+                <div className="pt-5">
+                  <Button>Læs mere</Button>
+                </div>
+              </div>
+            </Link>
+            </ScrollFlow>
+          </li>
+        ))
+      ) : (
+        <section className="min-h-screen">
+          <h3 className="thin italic flex items-center justify-center">
+            Der er ingen værker i denne sæson i vores arkiv
+          </h3>
+        </section>
+      )}
+    </ul>
+  );
+};
+
+export default ListCardAktiv;

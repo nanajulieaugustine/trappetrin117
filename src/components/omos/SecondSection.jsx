@@ -1,14 +1,16 @@
 import Image from "next/image";
+import ScrollFlow from "../animationer/ScrollFlow";
 
 const SecondSection = () => {
   return (
+    <ScrollFlow speed={-100}>
     <div id="light" className="flex gap-8 px-(--content-width)">
       <Image
         src="/omos/monsior_min_anus_gul.webp"
         alt="Monsior Min-An*S 2025"
-        width={400}  // større bredde
-        height={400} // større højde
-        className="flex-shrink-0" // forhindrer billedet i at krympe
+        width={400}  
+        height={400} 
+        className="flex-shrink-0" 
       />
       <div>
         <h3>Begyndelsen</h3>
@@ -17,6 +19,7 @@ const SecondSection = () => {
         </p>
       </div>
     </div>
+    </ScrollFlow>
   );
 };
 

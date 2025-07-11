@@ -17,9 +17,11 @@ const SecondSection = ({event}) => {
                     <h3 className="thin italic">{spilledato.pris}</h3>
                     </div>
                     <p className="thin capitalize max-w-50">{spilledato.adresse}</p>
+                    {event.aktuel === true?(
                     <Link href={spilledato.billetLink} target="_blank">
                         <Button>Køb billet</Button>
                     </Link>
+                    ):""}
                 </li>
                 ))}
             </ul>
