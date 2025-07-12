@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, EffectFade, Autoplay } from "swiper/modules";
+import { Navigation, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -10,64 +10,94 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import { CgArrowLongLeft, CgArrowLongRight } from "react-icons/cg";
 import { motion, AnimatePresence } from "framer-motion";
+import LineAnimationInView from "../animationer/LineAnimationINView";
 
 export default function RepreasentanterCard() {
-      const repraesentanter = bestyrelse[0].repraesentanter;
+  const repraesentanter = bestyrelse[0].repraesentanter;
 
-  const swiperRef = useRef(null);
+  const swiperTextRef = useRef(null);
+  const swiperImageRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(1);
 
+  const slidePrev = () => {
+    swiperTextRef.current?.slidePrev();
+    swiperImageRef.current?.slidePrev();
+  };
+
+  const slideNext = () => {
+    swiperTextRef.current?.slideNext();
+    swiperImageRef.current?.slideNext();
+  };
+
   return (
-    <div className="w-full h-screen flex justify-between relative overflow-hidden">
-        <div>
-            <ul>
-                 {repraesentanter.map((person, i) => (
-                    <li key={i}>
-                        <h3>{person.navn}</h3>
-                    </li>
-                    ))}
-            </ul>
-        </div>
-      {/* Swiper */}
-      <Swiper
-        modules={[EffectFade, Navigation, Autoplay]}
-        effect="fade"
-        loop={true}
-        onSwiper={(swiper) => {
-          swiperRef.current = swiper;
-        }}
-        onSlideChange={(swiper) => {
-          setCurrentIndex(swiper.realIndex + 1);
-        }}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        className="w-[500] h-screen"
-      >
-        {repraesentanter.map((person, i) => (
+    <div className="w-full h-screen flex relative overflow-hidden">
+      {/* Venstre: Tekst */}
+      <div className="w-1/2 h-screen">
+        <Swiper
+          modules={[EffectFade, Navigation]}
+          effect="fade"
+          loop={true}
+          onSwiper={(swiper) => {
+            swiperTextRef.current = swiper;
+          }}
+          onSlideChange={(swiper) => {
+            setCurrentIndex(swiper.realIndex + 1);
+          }}
+          className="w-full h-screen"
+        >
+          {repraesentanter.map((person, i) => (
+            <SwiperSlide key={i} className="flex items-center justify-center h-screen pl-5">
+              <div className="bg-(--background) h-screen">
+                <div className="flex gap-2">
+                    <h3>{person.stilling}</h3>
+                    <span className="thin">|</span>
+                    <span className="uppercase">{person.mail}</span>
+                </div>
+                <h2 className="black italic">{person.navn}</h2>
+                <h3 className="thin italic">{person.beskrivelse}</h3>
+                <LineAnimationInView/>
+                <p className="max-w-[500] pt-5">{person.quote}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* Højre: Billede */}
+      <div className="w-1/2 h-screen relative">
+        <Swiper
+          modules={[EffectFade, Navigation]}
+          effect="fade"
+          loop={true}
+          onSwiper={(swiper) => {
+            swiperImageRef.current = swiper;
+          }}
+          className="w-[500] h-screen"
+        >
+          {repraesentanter.map((person, i) => (
             <SwiperSlide key={i} className="flex justify-center items-center">
-                <Image
+              <Image
                 src={`/bestyrelse/${person.billede}`}
                 alt={person.navn}
                 fill
                 className="object-cover"
-                />
+              />
             </SwiperSlide>
-            ))}
-      </Swiper>
+          ))}
+        </Swiper>
+      </div>
 
       {/* Pile */}
       <div className="absolute inset-0 flex items-end gap-20 px-10 z-20">
         <button
-          onClick={() => swiperRef.current?.slidePrev()}
+          onClick={slidePrev}
           className="text-(--yellow) hover:scale-110 cursor-pointer transition-transform duration-300"
         >
           <CgArrowLongLeft size={60} />
         </button>
 
         <button
-          onClick={() => swiperRef.current?.slideNext()}
+          onClick={slideNext}
           className="text-(--yellow) hover:scale-110 cursor-pointer transition-transform duration-300"
         >
           <CgArrowLongRight size={60} />

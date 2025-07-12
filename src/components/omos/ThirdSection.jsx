@@ -87,7 +87,7 @@ const ThirdSection = () => {
           </p>
         </div>
         <div className="justify-end thin max-w-80">
-          <p>KONTAKT OS OG FÅ DIT VÆRK UDSTILLET HOS OS</p>
+          <span>KONTAKT OS OG FÅ DIT VÆRK UDSTILLET HOS OS</span>
           <p className="blue">TRAPPETRIN117@GMAIL.COM</p>
         </div>
       </div>
