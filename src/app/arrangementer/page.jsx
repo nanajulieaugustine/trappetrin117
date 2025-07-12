@@ -20,7 +20,7 @@ const Arrangementer = () => {
 
   return (
     <section className="px-(--content-width-wide) flex flex-col gap-10">
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-20">
         <div>
         <h2 className="black">arrangementer</h2>
         <h3 className="thin italic max-w-80">Forneden ses aktuelle arrangementer kurateret under trappetrin 117</h3>

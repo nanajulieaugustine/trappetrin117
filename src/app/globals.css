@@ -8,6 +8,7 @@
   --white: #F4F4F4;
   --content-width: max(20px, 50% - 50rem / 2);
   --content-width-wide:  max(20px, 50% - 80rem / 2);
+  --content-width-lg: max(20px, 50% - 100rem / 2);
 }
 
 body {

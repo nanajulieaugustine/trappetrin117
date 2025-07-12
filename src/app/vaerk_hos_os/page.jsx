@@ -18,7 +18,7 @@ const VaerkHosOs = () => {
         </h1>
         <p>Trappetrin 117 er en forening for unge kunstnere, som har gennemført et talent kursus, af en hvilken som helst art. Disse unge, kan bruge foreningen, til at udfolde og udvikle deres kunst og dermed have en forening i ryggen når/hvis, de søger fonde og puljer. Unge uden et gennemført talent kursus, kan stadig deltage og opføre deres kunst gennem foreningen. Dette kræver dog at ideen bliver pitchet og godkendt af bestyrelsen, som består af Sarah Chabert Saugmann og Josefine Aviaja Christiansen. Hvis man ønsker at deltage i et projekt uden at man har gennemført et talentkursus, skal man indgå en aftale med Trappetrin 117's ledere.</p>
         <div className="py-10">
-            <h2>husk dette når du søger</h2>
+            <h3>husk dette når du søger</h3>
             <p>Værket skal først godtages af bestyrelsen. For at gøre processen lettere, har vi her samlet de informationer, du skal tage stilling til for at få dit værk med hos os. Disse krav stilles så vi bedst muligt kan hjælpe med markedsføring af dit værk på vores sociale medier, hjemmeside og annoncer.<br/>Vi glæder os til at se dit værk!</p>
         </div>
         <Accordion>
@@ -63,7 +63,7 @@ const VaerkHosOs = () => {
       </AccordionItem>
         </Accordion>
 
-        <h2 className="pt-10 pb-5">INDHOLD TIL HJEMMESIDEN</h2>
+        <h3 className="pt-10 pb-5 thin italic">INDHOLD TIL HJEMMESIDEN</h3>
         <Accordion>
          <AccordionItem title="Grafik">
         <div className="flex justify-between items-center py-2">

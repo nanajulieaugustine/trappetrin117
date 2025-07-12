@@ -20,7 +20,7 @@ const VaerkArkiv = () => {
 
     return ( 
     <section className="px-(--content-width-wide) flex flex-col gap-10">
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-20">
         <div>
         <h2 className="black">værkarkiv</h2>
         <h3 className="thin italic max-w-80">Forneden ses tidligere arrangementer under trappetrin 117's værkarkiv</h3>

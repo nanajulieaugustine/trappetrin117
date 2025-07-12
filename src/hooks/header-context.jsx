@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from "react";
 const HeaderStyleContext = createContext();
 
 export function HeaderStyleProvider({ children }) {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   return (
     <HeaderStyleContext.Provider value={{ isDark, setIsDark }}>

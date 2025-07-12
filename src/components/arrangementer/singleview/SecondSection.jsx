@@ -7,7 +7,7 @@ const SecondSection = ({event}) => {
     return ( 
         <div className="px-(--content-width-wide) grid gap-10">
             <h2 className="underline">spilledatoer</h2>
-            <ul className="grid grid-cols-4 gap-5">
+            <ul className="grid grid-cols-2 md:grid-cols-4 gap-5">
                 {spilledatoer.map((spilledato)=>(
                 <li key={`${spilledato.dato}-${spilledato.tidspunkt}`}>
                     <h2 className="thin black">{spilledato.dato}</h2>

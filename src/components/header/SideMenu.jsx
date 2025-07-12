@@ -23,7 +23,7 @@ const SideMenu = ({ isVisible, toggleSideMenu }) => {
           animate={{ x: 0 }}
           exit={{ x: "100%" }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="fixed top-0 left-0 pt-25 w-full h-screen bg-(--blue) z-20"
+          className="fixed top-0 left-0 pt-25 w-full h-screen bg-(--blue) z-20 overflow-y-scroll"
         >
             <FadeInAnimation>
           <ul className="p-10 overflow-y-auto grid gap-8">

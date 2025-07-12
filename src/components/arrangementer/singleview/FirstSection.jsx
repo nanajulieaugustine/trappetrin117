@@ -15,7 +15,7 @@ const FirstSection = ({ event }) => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   return (
-    <div ref={containerRef} className="relative w-full h-screen overflow-hidden -z-10">
+    <div ref={containerRef} className="relative w-full min-h-screen overflow-hidden -z-10">
       <motion.div
         style={{ y }}
         className="absolute inset-0 z-[-1] will-change-transform bg-black"
@@ -35,14 +35,15 @@ const FirstSection = ({ event }) => {
         )}
       </motion.div>
 
-      <section className="flex gap-10 px-(--content-width-wide)">
+      <section className="flex flex-col md:flex-row gap-10 px-4 md:px-[--content-width-wide] py-10">
         <Image
           src={`/arrangementer/${event.plakat}`}
           height={400}
           width={400}
           alt={event.titel}
+          className="w-full h-auto md:w-[400px]"
         />
-        <div className="max-w-150">
+        <div className="max-w-none md:max-w-[600px]">
           <h1 className="italic white">{event.titel}</h1>
           <div className="flex gap-2">
             <h3 className="thin italic white">{event.genre}</h3>
@@ -53,6 +54,7 @@ const FirstSection = ({ event }) => {
           <p className="pt-10 white">{event.beskrivelse}</p>
         </div>
       </section>
+
     </div>
   );
 };
