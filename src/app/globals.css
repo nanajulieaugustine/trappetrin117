@@ -109,6 +109,16 @@ section{
   margin-bottom:4rem;
 }
 
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+
+
 details {
   color: hsl(190 30% 12%);
   border-bottom: 1px solid #dadada;
