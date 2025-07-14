@@ -100,14 +100,13 @@ const ThirdSection = () => {
         </div>
       </div>
 
-      {/* ✅ Her er billedet med dark background */}
       <div ref={imageRef} className="basis-full md:basis-1/3 w-full md:w-auto relative overflow-hidden">
         <Image
           src="/omos/monsior_min_anus_lilla.webp"
           alt="Monsior Min-An*S 2025"
           width={400}
           height={400}
-          className="w-full h-auto object-cover"
+          className="w-full h-auto lg:h-max-[100] object-cover"
         />
       </div>
     </div>

@@ -7,7 +7,7 @@ const Filtrering = ({ activeCategory, setActiveCategory }) => {
       <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2">
         {kategorier.map((kategori) => (
           <li key={kategori.id}>
-            <Button onClick={() => setActiveCategory(kategori.name)}>
+            <Button aria-label="vælg kategori" onClick={() => setActiveCategory(kategori.name)}>
               <h3
                 className={
                   activeCategory === kategori.name

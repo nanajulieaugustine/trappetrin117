@@ -4,10 +4,10 @@ const Priser = ({event}) => {
     const priser = event.priser;
 
     return ( 
-            <div className="gap-10">
+            <div className="gap-10 m-5">
             <ul className="flex flex-col justify-center items-center">
                 {priser.map((pris)=>(
-                <li key={`${pris.festival}-${pris.pris}`}>
+                <li className="ml-5 md:ml-0" key={`${pris.festival}-${pris.pris}`}>
                     <span className="uppercase">Vinder af</span>
                     <h2 className="black">{`${pris.festival}'s`}</h2>
                     <h2 className="black thin">{pris.pris}</h2>

@@ -1,10 +1,23 @@
+import { CiFacebook } from "react-icons/ci";
+import { CiInstagram } from "react-icons/ci";
+import Link from "next/link";
+
 const Footer = () => {
-    return ( <div className="bg-(--foreground) h-80 px-(--content-width) py-5">
+    return ( <div className="bg-(--foreground) min-h-80 px-(--content-width) py-5">
+        <div className="flex gap-5 justify-end p-2">
+            <Link href="https://www.instagram.com/trappetrin117/" target="_blank">
+                <CiInstagram size={30} className="text-(--background) hover:scale-105 transition-all duration-300" />
+            </Link>
+            <Link href="https://www.facebook.com/people/TrappeTrin117/61567011277715/?ref=_xav_ig_profile_page_web#" target="_blank">
+            <CiFacebook size={30} className="text-(--background) hover:scale-105 transition-all duration-300" />
+            </Link>
+        </div>
         <h1 className="italic white">Trappetrin 117</h1>
         <div className="flex white justify-between">
             <p className="thin white max-w-50">UNGEHUSET LUCERNA AHLGADE 3F 4300 HOLBÆK</p>
-            <p>TRAPPETRIN117@GMAIL.COM</p>
+            <p className="thin">TRAPPETRIN117@GMAIL.COM</p>
         </div>
+        <p className="white flex justify-center thin">CVR: 45323161</p>
     </div> );
 }
  

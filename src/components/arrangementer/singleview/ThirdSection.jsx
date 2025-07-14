@@ -16,9 +16,9 @@ export default function ThirdSection({ event }) {
   const [currentIndex, setCurrentIndex] = useState(1);
 
   return (
-    <div className="w-full h-screen flex justify-between relative overflow-hidden">
+    <div className="w-full min-h-screen flex flex-col md:flex-row justify-between relative overflow-hidden">
         <div>
-          <blockquote className="max-w-100 italic ml-5">{`"${event.quote}"`}</blockquote>
+          <blockquote className="max-w-100 italic m-5 pb-5">{`"${event.quote}"`}</blockquote>
         </div>
       {/* Swiper */}
       <Swiper
@@ -54,14 +54,14 @@ export default function ThirdSection({ event }) {
 
       {/* Pile */}
       <div className="absolute inset-0 flex items-end gap-20 px-10 z-20">
-        <button
+        <button aria-label="gå tilbage"
           onClick={() => swiperRef.current?.slidePrev()}
           className="text-(--yellow) hover:scale-110 cursor-pointer transition-transform duration-300"
         >
           <CgArrowLongLeft size={60} />
         </button>
 
-        <button
+        <button aria-label="gå frem"
           onClick={() => swiperRef.current?.slideNext()}
           className="text-(--yellow) hover:scale-110 cursor-pointer transition-transform duration-300"
         >

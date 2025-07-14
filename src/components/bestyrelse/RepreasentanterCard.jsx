@@ -30,9 +30,9 @@ export default function RepreasentanterCard() {
   };
 
   return (
-    <div className="w-full h-screen flex relative overflow-hidden">
+    <div className="w-full min-h-screen flex flex-col md:flex-row relative overflow-hidden">
       {/* Venstre: Tekst */}
-      <div className="w-1/2 h-screen">
+      <div className="w-full md:w-1/2 py-10 md:py-0 flex-1 flex items-center">
         <Swiper
           modules={[EffectFade, Navigation]}
           effect="fade"
@@ -43,20 +43,23 @@ export default function RepreasentanterCard() {
           onSlideChange={(swiper) => {
             setCurrentIndex(swiper.realIndex + 1);
           }}
-          className="w-full h-screen"
+          className="w-full"
         >
           {repraesentanter.map((person, i) => (
-            <SwiperSlide key={i} className="flex items-center justify-center h-screen pl-5">
-              <div className="bg-(--background) h-screen">
-                <div className="flex gap-2">
-                    <h3>{person.stilling}</h3>
-                    <span className="thin">|</span>
-                    <span className="uppercase">{person.mail}</span>
+            <SwiperSlide
+              key={i}
+              className="flex items-center justify-center px-5 md:pl-5 min-h-150 md:min-h-screen bg-(--background)"
+            >
+              <div className="bg-(--background) max-w-xl">
+                <div className="flex flex-wrap gap-2">
+                  <h3>{person.stilling}</h3>
+                  <span className="thin">|</span>
+                  <span className="uppercase">{person.mail}</span>
                 </div>
                 <h2 className="black italic">{person.navn}</h2>
                 <h3 className="thin italic">{person.beskrivelse}</h3>
-                <LineAnimationInView/>
-                <p className="max-w-[500] pt-5">{person.quote}</p>
+                <LineAnimationInView />
+                <p className="pt-5">{person.quote}</p>
               </div>
             </SwiperSlide>
           ))}
@@ -64,7 +67,7 @@ export default function RepreasentanterCard() {
       </div>
 
       {/* Højre: Billede */}
-      <div className="w-1/2 h-screen relative">
+      <div className="w-full min-h-screen relative">
         <Swiper
           modules={[EffectFade, Navigation]}
           effect="fade"
@@ -72,14 +75,18 @@ export default function RepreasentanterCard() {
           onSwiper={(swiper) => {
             swiperImageRef.current = swiper;
           }}
-          className="w-[500] h-screen"
+          className="w-full h-full"
         >
           {repraesentanter.map((person, i) => (
-            <SwiperSlide key={i} className="flex justify-center items-center">
+            <SwiperSlide
+              key={i}
+              className="flex justify-center items-center"
+            >
               <Image
                 src={`/bestyrelse/${person.billede}`}
                 alt={person.navn}
-                fill
+                width={500}
+                height={500}
                 className="object-cover"
               />
             </SwiperSlide>
@@ -88,24 +95,24 @@ export default function RepreasentanterCard() {
       </div>
 
       {/* Pile */}
-      <div className="absolute inset-0 flex items-end gap-20 px-10 z-20">
-        <button
+      <div className="absolute inset-0 flex items-end justify-start gap-20 px-10 pb-10 z-20">
+        <button aria-label="gå tilbage"
           onClick={slidePrev}
           className="text-(--yellow) hover:scale-110 cursor-pointer transition-transform duration-300"
         >
-          <CgArrowLongLeft size={60} />
+          <CgArrowLongLeft size={40} className="md:size-[60px]" />
         </button>
 
-        <button
+        <button aria-label="gå frem"
           onClick={slideNext}
           className="text-(--yellow) hover:scale-110 cursor-pointer transition-transform duration-300"
         >
-          <CgArrowLongRight size={60} />
+          <CgArrowLongRight size={40} className="md:size-[60px]" />
         </button>
       </div>
 
       {/* Counter */}
-      <div className="absolute bottom-10 right-10 thin italic text-(--yellow) text-5xl font-bold z-20 overflow-hidden h-[3.5rem]">
+      <div className="absolute bottom-10 right-5 md:right-10 thin italic text-(--yellow) text-3xl md:text-5xl font-bold z-20 overflow-hidden h-[2rem] md:h-[3.5rem]">
         <AnimatePresence mode="wait">
           <motion.span
             key={currentIndex}

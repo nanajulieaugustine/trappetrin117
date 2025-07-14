@@ -23,7 +23,7 @@ const Header = ({ showSideMenu, toggleSideMenu }) => {
         <ul>
           <Link href="/" aria-label="Gå til forsiden" onClick={closeSideMenu}>
             <li>
-              <Image src="/logo.webp" width={100} height={100} alt="Logo" />
+              <Image src="/logo.webp" width={80} height={80} alt="Logo" />
             </li>
           </Link>
         </ul>
@@ -41,7 +41,7 @@ const Header = ({ showSideMenu, toggleSideMenu }) => {
             </li>
           </Link>
 
-          <button
+          <button aria-label="gå til menu"
             className={`cursor-pointer hover:scale-105 transition-all duration-300 ${ showSideMenu || isDark ? "text-(--white)" : "text-(--black)"}`}
             onClick={toggleSideMenu}
           >

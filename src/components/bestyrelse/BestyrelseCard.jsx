@@ -17,8 +17,8 @@ const BestyrelseCard = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   return (
-    <div  ref={containerRef} className="relative w-full h-screen overflow-hidden -z-10">
-      <ul className="flex">
+    <div  ref={containerRef} className="relative w-full min-h-screen overflow-hidden -z-10 bg-black">
+      <ul className="flex flex-col md:flex-row">
         {ansatte.map((ansat) => (
         <li
             className="relative w-full h-screen overflow-hidden"
@@ -42,11 +42,8 @@ const BestyrelseCard = () => {
             <section className="absolute inset-0 flex flex-col justify-between p-4 text-white z-10">
             <div>
                 <h3 className="yellow">{ansat.navn}</h3>
-                <div className="flex gap-2">
                 <h3 className="italic thin">{ansat.stilling}</h3>
-                <span className="thin italic">|</span>
                 <h3 className="thin italic text-sm">{ansat.email}</h3>
-                </div>
             </div>
             <p className="max-w-80">{ansat.beskrivelse}</p>
             </section>

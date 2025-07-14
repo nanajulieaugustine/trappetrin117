@@ -7,7 +7,7 @@ const SeasonFiltrering = ({ activeCategory, setActiveCategory }) => {
       <ul className="flex justify-between">
         {seasons.map((season) => (
           <li key={season.id}>
-            <Button onClick={() => setActiveCategory(season.name)}>
+            <Button aria-label="vælg kategori" onClick={() => setActiveCategory(season.name)}>
               <h3 className={activeCategory === season.name ? "text-(--yellow) italic underline" : "italic"}>
                 {season.name}
               </h3>

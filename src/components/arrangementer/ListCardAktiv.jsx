@@ -19,7 +19,7 @@ const ListCardAktiv = ({ activeCategory }) => {
         filteredEvents.map((event) => (
           <li key={event.id}>
                 <ScrollFlow speed={-50}>
-            <Link className="flex gap-5" href={`/arrangementer/${event.id}`}>
+            <Link className="flex flex-col md:flex-row gap-5" href={`/arrangementer/${event.id}`}>
               <Image
                 src={`/arrangementer/${event.plakat}`}
                 height={400}
