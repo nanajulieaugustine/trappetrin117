@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="da">
         <Head>
-        <link title="favicon" rel="icon" href="/favicon.ico" />
+        <link title="favicon" rel="icon" href="/favicon.png" />
       </Head>
       <body>
         <HeaderStyleProvider>

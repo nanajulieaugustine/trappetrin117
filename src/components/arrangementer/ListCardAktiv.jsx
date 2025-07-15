@@ -25,8 +25,7 @@ const ListCardAktiv = ({ activeCategory }) => {
                 height={400}
                 width={400}
                 alt={event.titel}
-                fetchpriority={high}
-                load={lazy}
+                loading="lazy"
               />
               <div className="max-w-100">
                 <h3 className="thin italic">{event.genre}</h3>
