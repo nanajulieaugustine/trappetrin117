@@ -12,7 +12,7 @@ const Hero = ({
     return ( 
          <div ref={containerRef} style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden', display: 'flex' }}>
       <video
-        src="./index/medea_trailer.mp4"
+        src="/index/medea_trailer.mp4"
         poster={poster}
         autoPlay={autoPlay}
         loop={loop}

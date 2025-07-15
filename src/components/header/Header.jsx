@@ -28,7 +28,7 @@ const Header = ({ showSideMenu, toggleSideMenu }) => {
             </li>
         </ul>
 
-        <div className="flex items-center gap-10">
+        <ul className="flex items-center gap-10">
             <li
               onMouseOver={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -40,7 +40,7 @@ const Header = ({ showSideMenu, toggleSideMenu }) => {
               <LineAnimation isHovered={isHovered} color={showSideMenu || isDark ? "white" : "black"} />
               </Link>
             </li>
-
+          <li>
           <button aria-label="gå til menu"
             className={`cursor-pointer hover:scale-105 transition-all duration-300 ${ showSideMenu || isDark ? "text-(--white)" : "text-(--black)"}`}
             onClick={toggleSideMenu}
@@ -51,7 +51,8 @@ const Header = ({ showSideMenu, toggleSideMenu }) => {
               <IoIosMenu size={40} />
             )}
           </button>
-        </div>
+                </li>
+        </ul>
       </div>
     </nav>
   );
