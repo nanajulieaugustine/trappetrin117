@@ -6,6 +6,7 @@ import SideMenu from "@/components/header/SideMenu";
 import Footer from "@/components/global/Footer";
 import { useState } from "react";
 import { HeaderStyleProvider } from "@/hooks/header-context";
+import Head from "next/head";
 
 export default function RootLayout({ children }) {
   const [showSideMenu, setShowSideMenu] = useState(false);
@@ -14,6 +15,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="da">
+        <Head>
+        <link title="favicon" rel="icon" href="/favicon.ico" />
+      </Head>
       <body>
         <HeaderStyleProvider>
           <Header showSideMenu={showSideMenu} toggleSideMenu={toggleSideMenu} />
