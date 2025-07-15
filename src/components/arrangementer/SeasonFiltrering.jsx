@@ -8,7 +8,7 @@ const SeasonFiltrering = ({ activeCategory, setActiveCategory }) => {
         {seasons.map((season) => (
           <li key={season.id}>
             <Button aria-label="vælg kategori" onClick={() => setActiveCategory(season.name)}>
-              <h3 className={activeCategory === season.name ? "text-(--blue) italic underline" : "italic"}>
+              <h3 className={activeCategory === season.name ? "italic bold" : "italic thin"}>
                 {season.name}
               </h3>
             </Button>

@@ -11,8 +11,8 @@ const Filtrering = ({ activeCategory, setActiveCategory }) => {
               <h3
                 className={
                   activeCategory === kategori.name
-                    ? "text-(--blue) italic underline"
-                    : "italic"
+                    ? "bold italic"
+                    : "italic thin"
                 }
               >
                 {kategori.name}
