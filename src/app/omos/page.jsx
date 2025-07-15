@@ -4,6 +4,11 @@ import LineAnimationInView from "@/components/animationer/LineAnimationINView";
 import ThirdSection from "@/components/omos/ThirdSection";
 import ParallaxText from "@/components/omos/ParallaxText";
 
+export const metadata = {
+  title: "Om os",
+  description: "Hvad er Trappetrin 177? Beskrivelse af hvor vi startede, hvorfor vælg os?",
+};
+
 const OmOs = () => {
     return ( <div>
         <FirstSection/>

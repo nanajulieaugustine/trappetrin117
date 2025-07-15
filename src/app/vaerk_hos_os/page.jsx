@@ -1,5 +1,10 @@
 import Accordion, { AccordionItem } from "@/components/vaerk_hos_os/Accordion";
 
+export const metadata = {
+  title: "Værk hos os",
+  description: "Læs om processen i at udstille et værk hos Trappetrin 177",
+};
+
 const VaerkHosOs = () => {
     const text = "Dit værk hos os";
     const dit = text.substring(0, 3);

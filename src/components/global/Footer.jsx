@@ -5,10 +5,10 @@ import Link from "next/link";
 const Footer = () => {
     return ( <div className="bg-(--foreground) min-h-80 px-(--content-width) py-5">
         <div className="flex gap-5 justify-end p-2">
-            <Link href="https://www.instagram.com/trappetrin117/" target="_blank">
+            <Link href="https://www.instagram.com/trappetrin117/" target="_blank" title="instagram">
                 <CiInstagram size={30} className="text-(--background) hover:scale-105 transition-all duration-300" />
             </Link>
-            <Link href="https://www.facebook.com/people/TrappeTrin117/61567011277715/?ref=_xav_ig_profile_page_web#" target="_blank">
+            <Link href="https://www.facebook.com/people/TrappeTrin117/61567011277715/?ref=_xav_ig_profile_page_web#" target="_blank" title="facebook">
             <CiFacebook size={30} className="text-(--background) hover:scale-105 transition-all duration-300" />
             </Link>
         </div>

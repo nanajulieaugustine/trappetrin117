@@ -1,5 +1,11 @@
 import BestyrelseCard from "@/components/bestyrelse/BestyrelseCard";
 import RepreasentanterCard from "@/components/bestyrelse/RepreasentanterCard";
+
+export const metadata = {
+  title: "Bestyrelsen",
+  description: "Ansatte og repræsentanter under Trappetrin 177",
+};
+
 const Bestyrelsen = () => {
     return ( <div>
         <BestyrelseCard/>
