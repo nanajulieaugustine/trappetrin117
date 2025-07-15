@@ -1,7 +1,7 @@
 import Hero from "@/components/forside/Hero";
 
 export const metadata = {
-  title: "Forside",
+  title: "Forside | Trappetrin 177",
   description: "Trappetrin 117 forside",
 };
 

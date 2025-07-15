@@ -5,7 +5,7 @@ import ThirdSection from "@/components/omos/ThirdSection";
 import ParallaxText from "@/components/omos/ParallaxText";
 
 export const metadata = {
-  title: "Om os",
+  title: "Om Os | Trappetrin 177",
   description: "Hvad er Trappetrin 177? Beskrivelse af hvor vi startede, hvorfor vælg os?",
 };
 

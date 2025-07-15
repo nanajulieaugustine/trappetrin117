@@ -1,7 +1,7 @@
 import Accordion, { AccordionItem } from "@/components/vaerk_hos_os/Accordion";
 
 export const metadata = {
-  title: "Værk hos os",
+  title: "Værk Hos Os | Trappetrin 177",
   description: "Læs om processen i at udstille et værk hos Trappetrin 177",
 };
 

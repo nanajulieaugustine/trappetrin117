@@ -2,7 +2,7 @@ import BestyrelseCard from "@/components/bestyrelse/BestyrelseCard";
 import RepreasentanterCard from "@/components/bestyrelse/RepreasentanterCard";
 
 export const metadata = {
-  title: "Bestyrelsen",
+  title: "Bestyrelsen | Trappetrin 177",
   description: "Ansatte og repræsentanter under Trappetrin 177",
 };
 

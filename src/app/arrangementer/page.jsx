@@ -1,7 +1,7 @@
 import ArrangementCard from "@/components/arrangementer/ArrangementCard";
 
 export const metadata = {
-  title: "Arrangementer",
+  title: "Arrangementer | Trappetrin 177",
   description: "Liste over aktuelle arrangementer under Trappetrin 177",
 };
 
