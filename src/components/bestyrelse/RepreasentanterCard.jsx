@@ -30,7 +30,7 @@ export default function RepreasentanterCard() {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col md:flex-row relative overflow-hidden">
+    <div className="w-full min-h-screen flex flex-col md:flex-row justify-between relative overflow-hidden">
       {/* Venstre: Tekst */}
       <div className="w-full md:w-1/2 py-10 md:py-0 flex-1 flex items-center">
         <Swiper
@@ -48,9 +48,9 @@ export default function RepreasentanterCard() {
           {repraesentanter.map((person, i) => (
             <SwiperSlide
               key={i}
-              className="flex items-center justify-center px-5 md:pl-5 min-h-150 md:min-h-screen bg-(--background)"
+              className="flex items-center justify-center px-5 md:pl-5 min-h-full md:min-h-screen bg-(--background)"
             >
-              <div className="bg-(--background) max-w-xl">
+              <div className="bg-(--background) min-h-[960] max-w-xl">
                 <div className="flex flex-wrap gap-2">
                   <h3>{person.stilling}</h3>
                   <span className="thin">|</span>
@@ -112,7 +112,7 @@ export default function RepreasentanterCard() {
       </div>
 
       {/* Counter */}
-      <div className="absolute bottom-10 right-5 md:right-10 thin italic text-(--yellow) text-3xl md:text-5xl font-bold z-20 overflow-hidden h-[2rem] md:h-[3.5rem]">
+      <div className="absolute bottom-10 right-10 thin italic text-(--yellow) text-5xl font-bold z-20 overflow-hidden h-[3.5rem]">
         <AnimatePresence mode="wait">
           <motion.span
             key={currentIndex}
@@ -131,3 +131,5 @@ export default function RepreasentanterCard() {
     </div>
   );
 }
+
+

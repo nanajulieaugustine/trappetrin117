@@ -3,7 +3,7 @@
 import "./globals.css";
 import Header from "@/components/header/Header";
 import SideMenu from "@/components/header/SideMenu";
-import Footer from "@/components/omos/Footer";
+import Footer from "@/components/global/Footer";
 import { useState } from "react";
 import { HeaderStyleProvider } from "@/hooks/header-context";
 

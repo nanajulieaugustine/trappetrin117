@@ -13,11 +13,11 @@ const Footer = () => {
             </Link>
         </div>
         <h1 className="italic white">Trappetrin 117</h1>
-        <div className="flex white justify-between">
+        <div className="flex white gap-10 justify-between">
             <p className="thin white max-w-50">UNGEHUSET LUCERNA AHLGADE 3F 4300 HOLBÆK</p>
             <p className="thin">TRAPPETRIN117@GMAIL.COM</p>
         </div>
-        <p className="white flex justify-center thin">CVR: 45323161</p>
+        <p className="white flex justify-center thin">CVR: 45 32 31 61</p>
     </div> );
 }
  
