@@ -2,7 +2,7 @@ import Accordion, { AccordionItem } from "@/components/vaerk_hos_os/Accordion";
 
 export const metadata = {
   title: "Værk Hos Os | Trappetrin 177",
-  description: "Læs om processen i at udstille et værk hos Trappetrin 177",
+  description: "Trappetrin 117 er en forening for unge kunstnere, som har gennemført et talent kursus, af en hvilken som helst art. Disse unge, kan bruge foreningen, til at udfolde og udvikle deres kunst og dermed have en forening i ryggen når/hvis, de søger fonde og puljer. Unge uden et gennemført talent kursus, kan stadig deltage og opføre deres kunst gennem foreningen. Dette kræver dog at ideen bliver pitchet og godkendt af bestyrelsen, som består af Sarah Chabert Saugmann og Josefine Aviaja Christiansen. Hvis man ønsker at deltage i et projekt uden at man har gennemført et talentkursus, skal man indgå en aftale med Trappetrin 117's ledere.",
 };
 
 const VaerkHosOs = () => {

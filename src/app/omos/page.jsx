@@ -6,7 +6,7 @@ import ParallaxText from "@/components/omos/ParallaxText";
 
 export const metadata = {
   title: "Om Os | Trappetrin 177",
-  description: "Hvad er Trappetrin 177? Beskrivelse af hvor vi startede, hvorfor vælg os?",
+  description: "Trappetrin 117 er skabt af to unge skuespilleraspiranter fra Holbæk. Sarah og Josefine er begge to dimitterede fra Holbæk Drama College i 2023. Nu søger de at videreudvikle deres talent som skuespillere, inden de går videre med drømmen om at blive professionelle skuespillere.",
 };
 
 const OmOs = () => {

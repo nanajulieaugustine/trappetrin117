@@ -3,7 +3,7 @@ import RepreasentanterCard from "@/components/bestyrelse/RepreasentanterCard";
 
 export const metadata = {
   title: "Bestyrelsen | Trappetrin 177",
-  description: "Ansatte og repræsentanter under Trappetrin 177",
+  description: "Ansatte og repræsentanter under Trappetrin 177. Bestyrelsen består af de to ledere Sarah Chabert Saugmann og Josefone Aviaja Christiansen, der begge har stiftet foreningen. Yderligere består foreningen af en række repræsentanter indenfor de forskellige kunstarter. Det er dem, der vejleder og rådgiver når et værk indsendes.",
 };
 
 const Bestyrelsen = () => {
