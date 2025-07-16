@@ -4,10 +4,10 @@ import ClientLayout from "@/components/global/ClientLayout";
 export const metadata = {
   title: "Trappetrin 117",
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/favicon.png",
   },
 };
+
 
 export default function RootLayout({ children }) {
   return (
