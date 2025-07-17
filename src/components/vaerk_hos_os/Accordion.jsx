@@ -16,7 +16,7 @@ export const AccordionItem = ({ title, children }) => {
         }}
       >
         <div className="flex justify-between items-center">
-          <h3>{title}</h3>
+          <h3 className="max-w-[300] md:max-w-[1000]">{title}</h3>
           {isOpen ? <HiMinus size={20} /> : <HiPlus size={20} />}
         </div>
         <hr className="mt-2" />

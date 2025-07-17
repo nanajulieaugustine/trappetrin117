@@ -18,6 +18,10 @@ body {
   hyphens: auto;
 }
 
+.no-break{
+  hyphens:none;
+}
+
 h1{
   font-size: 96px;
   line-height: 88%;
